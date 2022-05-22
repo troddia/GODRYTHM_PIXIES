@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/la_wata (1).mp3-8cc1574460002e32f8f3ee572ef5eef7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/la_wata (1).mp3"
+dest_files=[ "res://.import/la_wata (1).mp3-8cc1574460002e32f8f3ee572ef5eef7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
