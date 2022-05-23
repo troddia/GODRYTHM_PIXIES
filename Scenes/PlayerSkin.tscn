@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://player/run/run-5.png" type="Texture" id=1]
 [ext_resource path="res://player/idle/idle-2.png" type="Texture" id=2]
@@ -24,7 +24,6 @@
 [ext_resource path="res://player/run-shoot/run-shoot-2.png" type="Texture" id=22]
 [ext_resource path="res://player/run-shoot/run-shoot-1.png" type="Texture" id=23]
 [ext_resource path="res://player/shoot/shoot.png" type="Texture" id=24]
-[ext_resource path="res://player/walk/walk-1.png" type="Texture" id=25]
 [ext_resource path="res://player/back-jump/back-jump-3.png" type="Texture" id=26]
 [ext_resource path="res://player/back-jump/back-jump-4.png" type="Texture" id=27]
 [ext_resource path="res://player/back-jump/back-jump-2.png" type="Texture" id=28]
@@ -103,6 +102,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "crouch"
+length = 0.05
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -188,6 +204,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "run shoot"
+length = 0.25
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -196,7 +213,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 29 ) ]
@@ -204,6 +221,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "shoot"
+length = 0.25
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -212,11 +230,126 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 25 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 24 ) ]
+"values": [ ExtResource( 24 ) ]
 }
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "Run"
+
+[sub_resource type="AnimationNodeAnimation" id=52]
+animation = "crouch"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "jump_start"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "land"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "run shoot"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=59]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+states/Idle/node = SubResource( 11 )
+states/Idle/position = Vector2( 635, 72 )
+states/Run/node = SubResource( 33 )
+states/Run/position = Vector2( 661, 306.893 )
+states/crouch/node = SubResource( 52 )
+states/crouch/position = Vector2( 138, 418.652 )
+states/fall/node = SubResource( 17 )
+states/fall/position = Vector2( 1132, 254 )
+states/jump/node = SubResource( 19 )
+states/jump/position = Vector2( 1132, 166 )
+states/jump_start/node = SubResource( 20 )
+states/jump_start/position = Vector2( 1132, 72 )
+states/land/node = SubResource( 21 )
+states/land/position = Vector2( 1120, 354 )
+"states/run shoot/node" = SubResource( 44 )
+"states/run shoot/position" = Vector2( 270, 172.893 )
+states/shoot/node = SubResource( 34 )
+states/shoot/position = Vector2( 319, -1.1068 )
+transitions = [ "Idle", "jump_start", SubResource( 25 ), "jump", "fall", SubResource( 26 ), "fall", "land", SubResource( 27 ), "Idle", "fall", SubResource( 28 ), "jump_start", "jump", SubResource( 30 ), "land", "Idle", SubResource( 32 ), "Idle", "Run", SubResource( 35 ), "Run", "Idle", SubResource( 36 ), "Run", "fall", SubResource( 37 ), "Run", "jump_start", SubResource( 38 ), "Run", "shoot", SubResource( 39 ), "Idle", "shoot", SubResource( 40 ), "shoot", "Idle", SubResource( 41 ), "shoot", "Run", SubResource( 42 ), "land", "Run", SubResource( 43 ), "Run", "run shoot", SubResource( 46 ), "run shoot", "Run", SubResource( 47 ), "run shoot", "Idle", SubResource( 48 ), "shoot", "run shoot", SubResource( 49 ), "run shoot", "shoot", SubResource( 50 ), "Idle", "crouch", SubResource( 55 ), "Run", "crouch", SubResource( 56 ), "crouch", "Run", SubResource( 57 ), "crouch", "Idle", SubResource( 58 ), "crouch", "jump_start", SubResource( 59 ), "land", "crouch", SubResource( 60 ) ]
+start_node = "Idle"
+graph_offset = Vector2( 21, -55.0682 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
 [node name="PlayerSkin" type="Node2D"]
 
@@ -224,6 +357,7 @@ tracks/0/keys = {
 anims/Idle = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 anims/Run = SubResource( 3 )
+anims/crouch = SubResource( 51 )
 anims/fall = SubResource( 4 )
 anims/hurt = SubResource( 8 )
 anims/jump = SubResource( 5 )
@@ -239,3 +373,8 @@ texture = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 16 )

@@ -13,16 +13,20 @@ var health=100
 #var new_energy = 0
 #var max_energy= 20
 
-
+onready var anim_tree = $PlayerSkin/AnimationTree
 onready var _pivot: Node2D = $PlayerSkin
-onready var _animation_player: AnimationPlayer = $PlayerSkin/AnimationPlayer# Para usarlo mas abajo solo como playback
+onready var playback = anim_tree.get("parameters/playback")
 onready var _start_scale: Vector2 = _pivot.scale
 onready var health_bar = $CanvasLayer/HealthBar
 onready var energy_bar = $CanvasLayer/EnergyBar
-onready var attacking = false
+
+
+
+var crouched = false
+
 
 func _ready():
-		
+	anim_tree.active = true
 	health_bar.value = health
 
 
@@ -32,9 +36,7 @@ func _physics_process(delta):
 	
 	lineal_vel.y += GRAVITY * delta # Para caer con gravedad
 	var target_vel = Input.get_action_strength("derecha") - Input.get_action_strength("izquierda") # esto es un valor entre 0 y 1
-	if attacking:
-		target_vel = 0
-	
+
 
 	
 	lineal_vel.x = lerp(lineal_vel.x, target_vel * SPEED, 0.5) 
@@ -42,24 +44,47 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():  # Para saltar
 		lineal_vel.y = -SPEED*1.4
 		
+		
+	if Input.is_action_pressed("crouch") and is_on_floor():
+		lineal_vel.x=0
+		crouched = true
+	else:
+		crouched = false
+	# var capsule: CapsuleShape2D = collision_shape.shape
+	# (collision_shape.shape as CapsuleShape2D).radius
+		
+		
 	var melee = false
-	if Input.is_action_just_pressed("shoot"):
-		_animation_player.play("shoot")
-		melee = true
-	#animations	
-	if not melee:
-		if is_on_floor():
-			if abs(lineal_vel.x) > 10:
-				_animation_player.play("Run")
-			else: 
-				_animation_player.play("Idle")
+	if Input.is_action_just_pressed("shoot") and is_on_floor():
+		
+		if abs(lineal_vel.x) > 10 :
+			playback.travel("run shoot")
 		else:
-			if lineal_vel.y > 0:
-				_animation_player.play("fall") 	
-			else: 
-				_animation_player.play("jump")	
-		if lineal_vel.x != 0:
-			_pivot.scale.x = sign(lineal_vel.x)*_start_scale.x
+			playback.travel("shoot")
+		melee = true
+		
+		
+	
+	#animations	
+
+	if not melee:
+		if crouched:
+			playback.travel("crouch")
+		else:
+			if is_on_floor():
+				if abs(lineal_vel.x) > 10:
+					playback.travel("Run")
+				else:
+					playback.travel("Idle")
+			else:
+				if lineal_vel.y > 0:
+					playback.travel("fall")
+				else:
+					playback.travel("jump")
+	
+	
+	if lineal_vel.x != 0:
+		_pivot.scale.x = sign(lineal_vel.x)*_start_scale.x
 
 		
 
