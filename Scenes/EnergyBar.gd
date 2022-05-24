@@ -1,5 +1,5 @@
 extends TextureProgress
-
+signal max_combo_reached(state)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -17,4 +17,17 @@ func _ready():
 
 
 func _on_Game_combo_changed(new_combo):
+	value = new_combo
+
+func _physics_process(delta):
+	if value >= max_value:
+		emit_signal("max_combo_reached", true)
+	else:
+		emit_signal("max_combo_reached", false)
+	
+	
+
+
+
+func _on_Samo_just_shot(new_combo):
 	value = new_combo

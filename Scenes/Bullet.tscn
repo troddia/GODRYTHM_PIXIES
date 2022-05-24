@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/shot/shot-3.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/shot/shot-1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/shot/shot-2.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=4]
+[ext_resource path="res://ASSETS/vfx/Warped shooting fx files/Pixelart/spark/frames/spark-preview3.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/vfx/Warped shooting fx files/Pixelart/spark/frames/spark-preview5.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/vfx/Warped shooting fx files/Pixelart/spark/frames/spark-preview1.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/vfx/Warped shooting fx files/Pixelart/spark/frames/spark-preview2.png" type="Texture" id=8]
+[ext_resource path="res://ASSETS/vfx/Warped shooting fx files/Pixelart/spark/frames/spark-preview4.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 4 )
@@ -40,6 +45,23 @@ tracks/0/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "bullet2"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ) ]
+}
+
 [node name="Bullet" type="Area2D"]
 script = ExtResource( 4 )
 
@@ -48,6 +70,7 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.945098, 0.152941, 0.878431, 1 )
 position = Vector2( -8.9407e-08, 0 )
 scale = Vector2( 1.66667, 1.45455 )
 texture = ExtResource( 2 )
@@ -55,3 +78,4 @@ texture = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Bullet = SubResource( 2 )
 anims/RESET = SubResource( 3 )
+anims/bullet2 = SubResource( 4 )

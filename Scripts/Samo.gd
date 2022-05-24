@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
+signal just_shot(new_combo)
+
 var lineal_vel = Vector2.ZERO #velocidad lineal que parte como cero (velocidad en plano xy)
 var SPEED = 400
 var GRAVITY = 700
 
 var _facing_right = true # determinar hacia donde estamos mirando 
-
+var can_attack = false
 
 var health=100 
 
@@ -57,28 +59,32 @@ func _physics_process(delta):
 		
 		
 	var melee = false
-	if Input.is_action_just_pressed("shoot") and is_on_floor():
+	if can_attack:
 		
-		var bullet = Bullet.instance()
-		get_parent().add_child(bullet)
-		
-		if abs(lineal_vel.x) > 10 :
-			playback.travel("run shoot")
+		if Input.is_action_just_pressed("shoot") and is_on_floor():
 			
-			if lineal_vel.x > 10:
-				bullet.global_position = $BulletSpawnRun.global_position
-			else:
-				bullet.global_position = $BulletSpawnRunIzq.global_position
-				bullet.rotation = PI
-		else:
-			playback.travel("shoot")
+			var bullet = Bullet.instance()
+			get_parent().add_child(bullet)
 			
-			if lineal_vel.x > 0:
-				bullet.global_position = $BulletSpawn.global_position
+			if abs(lineal_vel.x) > 10 :
+				playback.travel("run shoot")
+				
+				if lineal_vel.x > 10:
+					bullet.global_position = $BulletSpawnRun.global_position
+				else:
+					bullet.global_position = $BulletSpawnRunIzq.global_position
+					bullet.rotation = PI
 			else:
-				bullet.global_position = $BulletSpawnIzq.global_position
-				bullet.rotation = PI
-		melee = true
+				playback.travel("shoot")
+				
+				if lineal_vel.x > 0:
+					bullet.global_position = $BulletSpawn.global_position
+				else:
+					bullet.global_position = $BulletSpawnIzq.global_position
+					bullet.rotation = PI
+			emit_signal("just_shot",0)
+			can_attack = false
+			melee = true
 		
 		
 	
@@ -111,13 +117,15 @@ func _on_melee_area_entered(body: Node):
 		body.take_damage(self)
 
 
-func take_damage(amount):
-	health-= amount
-	if health <0:
-		get_tree().change_scene("res://scenes/main_menu.tscn")
+#func take_damage(amount):
+	#health-= amount
+	#if health <0:
+		#get_tree().change_scene("res://scenes/main_menu.tscn")
 	
 
-func on_area_entered(area):
-	take_damage(20)
+#func on_area_entered(area):
+	#take_damage(20)
 
 
+func _on_EnergyBar_max_combo_reached(state):
+	can_attack = state

@@ -4,6 +4,7 @@ var score = 0
 var combo = 0
 signal combo_changed(new_combo)
 
+
 var max_combo = 0
 var great = 0
 var good = 0
@@ -144,3 +145,7 @@ func increment_score(by):
 
 		
 	
+
+
+func _on_Samo_just_shot(new_combo):
+	combo = new_combo

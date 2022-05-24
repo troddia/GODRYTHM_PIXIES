@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/bolt2.png-d7f8fd25c0d8f373c0bc6873c9db81e2.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://ASSETS/vfx/Warped shooting fx files/Pixelart/Bolt/frames/bolt2.png"
+dest_files=[ "res://.import/bolt2.png-d7f8fd25c0d8f373c0bc6873c9db81e2.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
