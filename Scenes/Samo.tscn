@@ -15,8 +15,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.75, 64.5 )
 
-[node name="Samo" type="KinematicBody2D"]
-position = Vector2( 0, -3 )
+[node name="Samo" type="KinematicBody2D" groups=["player"]]
+position = Vector2( 18, -3 )
 script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -64,5 +64,17 @@ script = ExtResource( 7 )
 position = Vector2( 43, 44 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 10 )
+
+[node name="BulletSpawn" type="Position2D" parent="."]
+position = Vector2( 60, -45 )
+
+[node name="BulletSpawnRun" type="Position2D" parent="."]
+position = Vector2( 75, -35 )
+
+[node name="BulletSpawnIzq" type="Position2D" parent="."]
+position = Vector2( -60, -45 )
+
+[node name="BulletSpawnRunIzq" type="Position2D" parent="."]
+position = Vector2( -75, -45 )
 
 [connection signal="combo_changed" from="Game" to="CanvasLayer/EnergyBar" method="_on_Game_combo_changed"]

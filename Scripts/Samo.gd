@@ -20,7 +20,7 @@ onready var _start_scale: Vector2 = _pivot.scale
 onready var health_bar = $CanvasLayer/HealthBar
 onready var energy_bar = $CanvasLayer/EnergyBar
 
-
+var Bullet = preload("res://Scenes/Bullet.tscn")
 
 var crouched = false
 
@@ -41,6 +41,8 @@ func _physics_process(delta):
 	
 	lineal_vel.x = lerp(lineal_vel.x, target_vel * SPEED, 0.5) 
 	
+
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():  # Para saltar
 		lineal_vel.y = -SPEED*1.4
 		
@@ -57,10 +59,25 @@ func _physics_process(delta):
 	var melee = false
 	if Input.is_action_just_pressed("shoot") and is_on_floor():
 		
+		var bullet = Bullet.instance()
+		get_parent().add_child(bullet)
+		
 		if abs(lineal_vel.x) > 10 :
 			playback.travel("run shoot")
+			
+			if lineal_vel.x > 10:
+				bullet.global_position = $BulletSpawnRun.global_position
+			else:
+				bullet.global_position = $BulletSpawnRunIzq.global_position
+				bullet.rotation = PI
 		else:
 			playback.travel("shoot")
+			
+			if lineal_vel.x > 0:
+				bullet.global_position = $BulletSpawn.global_position
+			else:
+				bullet.global_position = $BulletSpawnIzq.global_position
+				bullet.rotation = PI
 		melee = true
 		
 		
@@ -85,6 +102,7 @@ func _physics_process(delta):
 	
 	if lineal_vel.x != 0:
 		_pivot.scale.x = sign(lineal_vel.x)*_start_scale.x
+		#scale.x = sign(lineal_vel.x)
 
 		
 
