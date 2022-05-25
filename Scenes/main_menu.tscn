@@ -1,7 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/hf-free-complete/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://ASSETS/miami_vice/Layers/buildings.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/main_menu.gd" type="Script" id=3]
+[ext_resource path="res://ASSETS/miami_vice/Layers/highway.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/calleMenu.gd" type="Script" id=5]
+[ext_resource path="res://ASSETS/miami_vice/Layers/palms.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/miami_vice/Layers/palm-tree.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/miami_vice/Layers/back.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/nubesMenu.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/edificiosMenu.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/palmerasMenu.gd" type="Script" id=11]
+[ext_resource path="res://player/walk/walk-13.png" type="Texture" id=12]
+[ext_resource path="res://player/walk/walk-15.png" type="Texture" id=13]
+[ext_resource path="res://ASSETS/vfx/Warped shooting fx files/Music/warped-shooting-fx.mp3" type="AudioStream" id=14]
+[ext_resource path="res://player/walk/walk-12.png" type="Texture" id=15]
+[ext_resource path="res://player/walk/walk-8.png" type="Texture" id=17]
+[ext_resource path="res://player/walk/walk-1.png" type="Texture" id=18]
+[ext_resource path="res://player/walk/walk-6.png" type="Texture" id=19]
+[ext_resource path="res://player/walk/walk-4.png" type="Texture" id=20]
+[ext_resource path="res://player/walk/walk-5.png" type="Texture" id=21]
+[ext_resource path="res://player/walk/walk-7.png" type="Texture" id=22]
+[ext_resource path="res://player/walk/walk-3.png" type="Texture" id=23]
+[ext_resource path="res://player/walk/walk-2.png" type="Texture" id=24]
+[ext_resource path="res://player/walk/walk-9.png" type="Texture" id=25]
+[ext_resource path="res://player/walk/walk-11.png" type="Texture" id=26]
+[ext_resource path="res://player/walk/walk-10.png" type="Texture" id=27]
 
 [sub_resource type="Theme" id=2]
 
@@ -9,17 +33,30 @@
 size = 32
 font_data = ExtResource( 1 )
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -333.0
+margin_top = -189.0
+margin_right = -325.0
+margin_bottom = -213.0
+rect_scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 3 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color( 0.890196, 0.0392157, 0.960784, 1 )
-margin_left = 552.0
-margin_top = 315.0
-margin_right = 728.0
-margin_bottom = 405.0
+margin_left = 556.0
+margin_top = 303.0
+margin_right = 732.0
+margin_bottom = 393.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -50,3 +87,61 @@ margin_top = 56.0
 margin_right = 162.0
 margin_bottom = 76.0
 text = "BYE N00B"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1270, 0 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 641.75, 360 )
+scale = Vector2( 5.70759, 2.99167 )
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1270, 0 )
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 639.906, 365 )
+scale = Vector2( 4.99146, 3 )
+texture = ExtResource( 2 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1270, 0 )
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 640.25, 636 )
+scale = Vector2( 5.72098, 2.48073 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_mirroring = Vector2( 720, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -61, 435 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1270, 0 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 643.25, 596 )
+scale = Vector2( 1.43025, 1 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground"]
+position = Vector2( 633, 610 )
+scale = Vector2( 2.54225, 2.3806 )
+frames = SubResource( 3 )
+frame = 13
+speed_scale = 2.0
+playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+autoplay = true

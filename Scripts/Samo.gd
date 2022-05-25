@@ -11,9 +11,7 @@ var can_attack = false
 
 var health=100 
 
-#var energy= 0 setget set_energy
-#var new_energy = 0
-#var max_energy= 20
+
 
 onready var anim_tree = $PlayerSkin/AnimationTree
 onready var _pivot: Node2D = $PlayerSkin

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/PlayerSkin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=2]
@@ -10,10 +10,36 @@
 [ext_resource path="res://Scenes/HealthBar.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/panel_Example4.png" type="Texture" id=9]
 [ext_resource path="res://Warped Portraits Files/portraits with bg/base2.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/sayayin.gd" type="Script" id=11]
+[ext_resource path="res://ASSETS/explosion-63.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Samo.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.75, 64.5 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 12 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 12 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 12 )
+region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 12 )
+region = Rect2( 336, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "sayayin",
+"speed": 5.0
+} ]
 
 [node name="Samo" type="KinematicBody2D" groups=["player"]]
 position = Vector2( 18, -3 )
@@ -78,7 +104,20 @@ position = Vector2( -60, -45 )
 [node name="BulletSpawnRunIzq" type="Position2D" parent="."]
 position = Vector2( -75, -45 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 8.99999, -2 )
+scale = Vector2( 2.5625, 3.64583 )
+frames = SubResource( 7 )
+animation = "sayayin"
+frame = 3
+speed_scale = 4.0
+playing = true
+flip_v = true
+script = ExtResource( 11 )
+
 [connection signal="just_shot" from="." to="Game" method="_on_Samo_just_shot"]
 [connection signal="just_shot" from="." to="CanvasLayer/EnergyBar" method="_on_Samo_just_shot"]
 [connection signal="combo_changed" from="Game" to="CanvasLayer/EnergyBar" method="_on_Game_combo_changed"]
 [connection signal="max_combo_reached" from="CanvasLayer/EnergyBar" to="." method="_on_EnergyBar_max_combo_reached"]
+[connection signal="max_combo_reached" from="CanvasLayer/EnergyBar" to="AnimatedSprite" method="_on_EnergyBar_max_combo_reached"]

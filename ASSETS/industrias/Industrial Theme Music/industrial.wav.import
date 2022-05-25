@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/industrial.wav-69da4f3fa8564f5d442ba5e5da9763c1.sample"
+
+[deps]
+
+source_file="res://ASSETS/industrias/Industrial Theme Music/industrial.wav"
+dest_files=[ "res://.import/industrial.wav-69da4f3fa8564f5d442ba5e5da9763c1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
