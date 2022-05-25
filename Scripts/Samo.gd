@@ -69,7 +69,7 @@ func _physics_process(delta):
 			if abs(lineal_vel.x) > 10 :
 				playback.travel("run shoot")
 				
-				if lineal_vel.x > 10:
+				if lineal_vel.x >=0:
 					bullet.global_position = $BulletSpawnRun.global_position
 				else:
 					bullet.global_position = $BulletSpawnRunIzq.global_position
