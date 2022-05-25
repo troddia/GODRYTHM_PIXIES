@@ -10,7 +10,8 @@ func _physics_process(delta):
 func _ready():
 	$AnimationPlayer.play("bullet2")
 	connect("body_entered", self, "_on_body_entered")
-	
-#func _on_body_entered(body: Node):
-	#if not body	
+
+func _on_body_entered(body: Node):
+	if not body.is_in_group("player"):
+		queue_free()
 	

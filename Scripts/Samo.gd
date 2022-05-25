@@ -43,7 +43,11 @@ func _physics_process(delta):
 	
 	lineal_vel.x = lerp(lineal_vel.x, target_vel * SPEED, 0.5) 
 	
-
+	if lineal_vel.x > 0:
+		_facing_right = true
+	elif lineal_vel.x < 0:
+		_facing_right = false
+				
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():  # Para saltar
 		lineal_vel.y = -SPEED*1.4
@@ -77,7 +81,7 @@ func _physics_process(delta):
 			else:
 				playback.travel("shoot")
 				
-				if lineal_vel.x > 0:
+				if _facing_right:
 					bullet.global_position = $BulletSpawn.global_position
 				else:
 					bullet.global_position = $BulletSpawnIzq.global_position

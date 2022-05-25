@@ -370,11 +370,11 @@ anims/shoot = SubResource( 10 )
 position = Vector2( -6, -25 )
 scale = Vector2( 3.08451, 2.58955 )
 texture = ExtResource( 10 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 15 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 16 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 75, -35 )
