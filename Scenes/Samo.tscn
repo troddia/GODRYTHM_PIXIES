@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/EnergyBar.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/HealthBar.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/panel_Example4.png" type="Texture" id=9]
-[ext_resource path="res://Warped Portraits Files/portraits with bg/base2.png" type="Texture" id=10]
+[ext_resource path="res://Warped Portraits Files/Portraits with transparent bg/portraits2.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/sayayin.gd" type="Script" id=11]
 [ext_resource path="res://ASSETS/explosion-63.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Samo.gd" type="Script" id=13]
@@ -110,7 +110,7 @@ position = Vector2( 8.99999, -2 )
 scale = Vector2( 2.5625, 3.64583 )
 frames = SubResource( 7 )
 animation = "sayayin"
-frame = 3
+frame = 2
 speed_scale = 4.0
 playing = true
 flip_v = true

@@ -5,6 +5,8 @@ signal just_shot(new_combo)
 var lineal_vel = Vector2.ZERO #velocidad lineal que parte como cero (velocidad en plano xy)
 var SPEED = 400
 var GRAVITY = 700
+onready var jump_count = 0
+
 
 var _facing_right = true # determinar hacia donde estamos mirando 
 var can_attack = false
@@ -47,8 +49,14 @@ func _physics_process(delta):
 		_facing_right = false
 				
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():  # Para saltar
-		lineal_vel.y = -SPEED*1.4
+	if Input.is_action_just_pressed("jump"):  # Para saltar
+		#lineal_vel.y = -SPEED*1.4
+		if jump_count < 1:
+			jump_count += 1
+			lineal_vel.y = -SPEED*1.4
+		
+	if is_on_floor():
+		jump_count = 0
 		
 		
 	if Input.is_action_pressed("crouch") and is_on_floor():
@@ -63,7 +71,7 @@ func _physics_process(delta):
 	var melee = false
 	if can_attack:
 		
-		if Input.is_action_just_pressed("shoot") and is_on_floor():
+		if Input.is_action_just_pressed("shoot"):
 			
 			var bullet = Bullet.instance()
 			get_parent().add_child(bullet)

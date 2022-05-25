@@ -8,7 +8,7 @@
 [ext_resource path="res://ASSETS/industrias/Sprites/far-buildings.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 640.375, 31 )
+extents = Vector2( 916.188, 31 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "tileset.png 0"
@@ -75,6 +75,23 @@ position = Vector2( 121, 88 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
+visible = false
+scale = Vector2( 159, 8 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 56, 254 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -154.813, 88 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 visible = false
 scale = Vector2( 159, 8 )
 

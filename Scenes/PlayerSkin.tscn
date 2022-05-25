@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://player/run/run-5.png" type="Texture" id=1]
 [ext_resource path="res://player/idle/idle-2.png" type="Texture" id=2]
@@ -24,12 +24,26 @@
 [ext_resource path="res://player/run-shoot/run-shoot-2.png" type="Texture" id=22]
 [ext_resource path="res://player/run-shoot/run-shoot-1.png" type="Texture" id=23]
 [ext_resource path="res://player/shoot/shoot.png" type="Texture" id=24]
+[ext_resource path="res://player/walk/walk-4.png" type="Texture" id=25]
 [ext_resource path="res://player/back-jump/back-jump-3.png" type="Texture" id=26]
 [ext_resource path="res://player/back-jump/back-jump-4.png" type="Texture" id=27]
 [ext_resource path="res://player/back-jump/back-jump-2.png" type="Texture" id=28]
 [ext_resource path="res://player/run-shoot/run-shoot-6.png" type="Texture" id=29]
 [ext_resource path="res://player/back-jump/back-jump-6.png" type="Texture" id=30]
 [ext_resource path="res://player/hurt/hurt.png" type="Texture" id=31]
+[ext_resource path="res://player/walk/walk-5.png" type="Texture" id=32]
+[ext_resource path="res://player/walk/walk-1.png" type="Texture" id=33]
+[ext_resource path="res://player/walk/walk-15.png" type="Texture" id=34]
+[ext_resource path="res://player/walk/walk-12.png" type="Texture" id=35]
+[ext_resource path="res://player/walk/walk-7.png" type="Texture" id=36]
+[ext_resource path="res://player/walk/walk-6.png" type="Texture" id=37]
+[ext_resource path="res://player/walk/walk-3.png" type="Texture" id=38]
+[ext_resource path="res://player/walk/walk-9.png" type="Texture" id=39]
+[ext_resource path="res://player/walk/walk-2.png" type="Texture" id=40]
+[ext_resource path="res://player/walk/walk-11.png" type="Texture" id=41]
+[ext_resource path="res://player/walk/walk-10.png" type="Texture" id=42]
+[ext_resource path="res://player/walk/walk-13.png" type="Texture" id=43]
+[ext_resource path="res://player/walk/walk-8.png" type="Texture" id=44]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -236,6 +250,23 @@ tracks/0/keys = {
 "values": [ ExtResource( 24 ) ]
 }
 
+[sub_resource type="Animation" id=63]
+resource_name = "walk"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 33 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 44 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 41 ), ExtResource( 35 ), ExtResource( 43 ), ExtResource( 34 ) ]
+}
+
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Idle"
 
@@ -265,14 +296,9 @@ animation = "shoot"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 switch_mode = 2
@@ -326,6 +352,13 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=60]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=62]
+
 [sub_resource type="AnimationNodeStateMachine" id=15]
 states/Idle/node = SubResource( 11 )
 states/Idle/position = Vector2( 635, 72 )
@@ -336,7 +369,7 @@ states/crouch/position = Vector2( 138, 418.652 )
 states/fall/node = SubResource( 17 )
 states/fall/position = Vector2( 1132, 254 )
 states/jump/node = SubResource( 19 )
-states/jump/position = Vector2( 1132, 166 )
+states/jump/position = Vector2( 1209, 152 )
 states/jump_start/node = SubResource( 20 )
 states/jump_start/position = Vector2( 1132, 72 )
 states/land/node = SubResource( 21 )
@@ -345,9 +378,9 @@ states/land/position = Vector2( 1120, 354 )
 "states/run shoot/position" = Vector2( 270, 172.893 )
 states/shoot/node = SubResource( 34 )
 states/shoot/position = Vector2( 319, -1.1068 )
-transitions = [ "Idle", "jump_start", SubResource( 25 ), "jump", "fall", SubResource( 26 ), "fall", "land", SubResource( 27 ), "Idle", "fall", SubResource( 28 ), "jump_start", "jump", SubResource( 30 ), "land", "Idle", SubResource( 32 ), "Idle", "Run", SubResource( 35 ), "Run", "Idle", SubResource( 36 ), "Run", "fall", SubResource( 37 ), "Run", "jump_start", SubResource( 38 ), "Run", "shoot", SubResource( 39 ), "Idle", "shoot", SubResource( 40 ), "shoot", "Idle", SubResource( 41 ), "shoot", "Run", SubResource( 42 ), "land", "Run", SubResource( 43 ), "Run", "run shoot", SubResource( 46 ), "run shoot", "Run", SubResource( 47 ), "run shoot", "Idle", SubResource( 48 ), "shoot", "run shoot", SubResource( 49 ), "run shoot", "shoot", SubResource( 50 ), "Idle", "crouch", SubResource( 55 ), "Run", "crouch", SubResource( 56 ), "crouch", "Run", SubResource( 57 ), "crouch", "Idle", SubResource( 58 ), "crouch", "jump_start", SubResource( 59 ), "land", "crouch", SubResource( 60 ) ]
+transitions = [ "Idle", "jump_start", SubResource( 25 ), "fall", "land", SubResource( 27 ), "Idle", "fall", SubResource( 28 ), "land", "Idle", SubResource( 32 ), "Idle", "Run", SubResource( 35 ), "Run", "Idle", SubResource( 36 ), "Run", "fall", SubResource( 37 ), "Run", "jump_start", SubResource( 38 ), "Run", "shoot", SubResource( 39 ), "Idle", "shoot", SubResource( 40 ), "shoot", "Idle", SubResource( 41 ), "shoot", "Run", SubResource( 42 ), "land", "Run", SubResource( 43 ), "Run", "run shoot", SubResource( 46 ), "run shoot", "Run", SubResource( 47 ), "run shoot", "Idle", SubResource( 48 ), "shoot", "run shoot", SubResource( 49 ), "run shoot", "shoot", SubResource( 50 ), "Idle", "crouch", SubResource( 55 ), "Run", "crouch", SubResource( 56 ), "crouch", "Run", SubResource( 57 ), "crouch", "Idle", SubResource( 58 ), "crouch", "jump_start", SubResource( 59 ), "land", "crouch", SubResource( 60 ), "jump_start", "jump", SubResource( 30 ), "fall", "jump_start", SubResource( 61 ), "jump", "fall", SubResource( 62 ) ]
 start_node = "Idle"
-graph_offset = Vector2( 21, -55.0682 )
+graph_offset = Vector2( 238.449, 36.0522 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
@@ -365,10 +398,11 @@ anims/jump_start = SubResource( 6 )
 anims/land = SubResource( 7 )
 "anims/run shoot" = SubResource( 9 )
 anims/shoot = SubResource( 10 )
+anims/walk = SubResource( 63 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -6, -25 )
-scale = Vector2( 3.08451, 2.58955 )
+scale = Vector2( 3.085, 2.59 )
 texture = ExtResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
