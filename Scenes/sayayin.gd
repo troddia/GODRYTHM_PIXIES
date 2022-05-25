@@ -8,7 +8,7 @@ onready var showing= false
 
 
 
-func _physics_process(delta):
+func _process(delta):
 	if not showing:
 		self.hide()
 	else:

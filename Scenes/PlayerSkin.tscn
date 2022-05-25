@@ -402,7 +402,7 @@ anims/walk = SubResource( 63 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -6, -25 )
-scale = Vector2( 3.085, 2.59 )
+scale = Vector2( 2.59, 2.59 )
 texture = ExtResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

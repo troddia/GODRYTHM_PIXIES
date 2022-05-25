@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/PlayerSkin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/pause_menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ASSETS/player-health-bar-over.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/player-health-bar-under.png" type="Texture" id=5]
-[ext_resource path="res://ASSETS/player-health-bar-health.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/EnergyBar.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/HealthBar.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/panel_Example4.png" type="Texture" id=9]
@@ -69,7 +68,8 @@ margin_right = 324.0
 margin_bottom = 41.0
 texture_under = ExtResource( 5 )
 texture_over = ExtResource( 4 )
-texture_progress = ExtResource( 6 )
+texture_progress = ExtResource( 9 )
+tint_progress = Color( 0.32549, 0.882353, 0.0156863, 1 )
 nine_patch_stretch = true
 script = ExtResource( 8 )
 
