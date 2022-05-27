@@ -29,4 +29,4 @@ func _on_exit_pressed():
 
 
 func _on_TimerMENU_timeout():
-	get_tree().change_scene("res://scenes/Main.tscn")
+	get_tree().change_scene("res://Scenes/Jefe1Animation.tscn")

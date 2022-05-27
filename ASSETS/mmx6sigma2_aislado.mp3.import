@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mmx6sigma2_aislado.mp3-164f3ac6c211599ce4368af4329fdcbb.mp3str"
+
+[deps]
+
+source_file="res://ASSETS/mmx6sigma2_aislado.mp3"
+dest_files=[ "res://.import/mmx6sigma2_aislado.mp3-164f3ac6c211599ce4368af4329fdcbb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

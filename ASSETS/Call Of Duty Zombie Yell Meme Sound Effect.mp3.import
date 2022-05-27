@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Call Of Duty Zombie Yell Meme Sound Effect.mp3-bb487c0b0a7263d1b11542ea9127276d.mp3str"
+
+[deps]
+
+source_file="res://ASSETS/Call Of Duty Zombie Yell Meme Sound Effect.mp3"
+dest_files=[ "res://.import/Call Of Duty Zombie Yell Meme Sound Effect.mp3-bb487c0b0a7263d1b11542ea9127276d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

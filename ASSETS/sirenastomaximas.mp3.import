@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sirenastomaximas.mp3-fa93e1c65af18105f5d10dc02693d8c9.mp3str"
+
+[deps]
+
+source_file="res://ASSETS/sirenastomaximas.mp3"
+dest_files=[ "res://.import/sirenastomaximas.mp3-fa93e1c65af18105f5d10dc02693d8c9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

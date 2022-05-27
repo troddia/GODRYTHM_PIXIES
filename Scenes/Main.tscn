@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Samo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/tileset.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://ASSETS/industrias/Sprites/bg.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/industrias/Sprites/skill-foreground.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/industrias/Sprites/far-buildings.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Enemigo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 916.188, 31 )
@@ -64,6 +66,7 @@ extents = Vector2( 916.188, 31 )
 2/z_index = 0
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -138,3 +141,7 @@ motion_mirroring = Vector2( 720, 0 )
 position = Vector2( 444, 475 )
 scale = Vector2( 3.25643, 4.96875 )
 texture = ExtResource( 5 )
+
+[node name="Enemigo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1500, 450 )
+scale = Vector2( 2, 2 )
