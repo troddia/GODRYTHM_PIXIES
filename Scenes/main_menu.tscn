@@ -114,6 +114,7 @@ scale = Vector2( 1.43025, 1 )
 texture = ExtResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 646, 432.667 )
 stream = ExtResource( 14 )
 autoplay = true
 

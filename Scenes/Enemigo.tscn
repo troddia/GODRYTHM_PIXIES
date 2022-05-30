@@ -1,13 +1,9 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ASSETS/Jefe/demon-attack-no-breath.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Jefe/demon-attack.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/Jefe/demon-idle.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Enemigo.gd" type="Script" id=4]
-
-[sub_resource type="CapsuleShape2D" id=9]
-radius = 41.0
-height = 40.0
 
 [sub_resource type="Animation" id=12]
 resource_name = "Ataque"
@@ -59,6 +55,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -61, -28 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Ataques:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 1, 0 ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -166,6 +174,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 11 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Ataques:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -229,10 +249,34 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( -61, -28 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Ataques:collision_mask")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Ataques:collision_layer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=27]
 resource_name = "gRITO"
-length = 4.0
+length = 3.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:texture")
@@ -265,10 +309,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.0904436, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5, 1.6, 1.8, 2, 2.16696, 2.3, 2.5, 2.6, 2.8, 2.9, 3.1, 3.3, 3.5, 3.6, 3.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 6, 2, 3, 4, 7, 6, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 7, 6, 7, 7, 6, 7, 7, 6, 7, 7 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -323,9 +367,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Ataques:collision_mask")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
-[sub_resource type="AnimationNodeAnimation" id=21]
-animation = "Ataque (copy)"
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "Ataque"
 
 [sub_resource type="AnimationNodeAnimation" id=22]
 animation = "Fuego"
@@ -333,28 +389,35 @@ animation = "Fuego"
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "quieto"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id=17]
-"states/Ataque (copy)/node" = SubResource( 21 )
-"states/Ataque (copy)/position" = Vector2( 398, 6 )
+states/Ataque/node = SubResource( 29 )
+states/Ataque/position = Vector2( 420.457, 5.488 )
 states/Fuego/node = SubResource( 22 )
 states/Fuego/position = Vector2( 666, 125 )
 states/quieto/node = SubResource( 14 )
 states/quieto/position = Vector2( 231, 113 )
-transitions = [ "quieto", "Ataque (copy)", SubResource( 23 ), "Ataque (copy)", "Fuego", SubResource( 26 ), "Fuego", "quieto", SubResource( 25 ) ]
+transitions = [ "Fuego", "quieto", SubResource( 25 ), "quieto", "Ataque", SubResource( 30 ), "Ataque", "Fuego", SubResource( 31 ) ]
 start_node = "quieto"
-graph_offset = Vector2( -62.5433, -157.512 )
+graph_offset = Vector2( -46.5433, -64.512 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
-[node name="Enemigo" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 80.0
+height = 0.0
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 99, 54.5 )
+
+[node name="Enemigo" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -362,12 +425,8 @@ position = Vector2( -61, -28 )
 scale = Vector2( 2.15409, 2.15409 )
 texture = ExtResource( 2 )
 hframes = 11
-frame = 7
+frame = 6
 region_rect = Rect2( 90, 47, 134, 124 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -28, -2 )
-shape = SubResource( 9 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/Ataque = SubResource( 12 )
@@ -386,3 +445,21 @@ parameters/playback = SubResource( 18 )
 position = Vector2( -15, 91 )
 enabled = true
 cast_to = Vector2( -250, 0 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -28, -2 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -26, 0 )
+shape = SubResource( 9 )
+
+[node name="Ataques" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ataques"]
+position = Vector2( -174, 89 )
+shape = SubResource( 28 )

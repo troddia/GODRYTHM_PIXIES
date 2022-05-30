@@ -19,9 +19,9 @@ var last_spawned_beat = 0
 var sec_per_beat = 60.0 / bpm
 
 var spawn_1_beat = 0
-var spawn_2_beat = 0
-var spawn_3_beat = 1
-var spawn_4_beat = 0
+var spawn_2_beat = 3
+var spawn_3_beat = 0
+var spawn_4_beat = 2
 
 var lane = 0
 var rand = 0
@@ -49,13 +49,14 @@ func _on_Conductor_beat(position):
 	song_position_in_beats = position
 	if song_position_in_beats > 36:
 		spawn_1_beat = 1
-		spawn_2_beat = 1
+		spawn_2_beat = 0
 		spawn_3_beat = 1
 		spawn_4_beat = 0
 	if song_position_in_beats > 98:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
-		spawn_3_beat = 0
+		spawn_3_beat = 1
+		spawn_3_beat = 1
 		spawn_4_beat = 1
 	if song_position_in_beats > 132:
 		spawn_1_beat = 1

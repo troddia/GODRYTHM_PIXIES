@@ -2,6 +2,7 @@ extends KinematicBody2D
 onready var _animation_player: AnimationPlayer = $AnimationPlayer2
 onready var playback = $AnimationTree.get("parameters/playback")
 
+export var damage = 10
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

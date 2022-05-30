@@ -1,6 +1,6 @@
 extends Area2D
 
-export var SPEED = 600
+export var SPEED = 900
 onready var timer = get_node("Timer_bullet")
 
 func _physics_process(delta):
@@ -13,6 +13,9 @@ func _ready():
 
 func _on_body_entered(body: Node):
 	if not body.is_in_group("player"):
+		self.position.x = self.position.x + 70
+		self.scale.x = 2
+		self.scale.y = 2
 		$AnimationPlayer.play("splash")
 		timer.set_wait_time(0.6)
 		SPEED = 0

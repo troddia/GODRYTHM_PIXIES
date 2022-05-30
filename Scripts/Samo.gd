@@ -11,7 +11,7 @@ onready var jump_count = 0
 var _facing_right = true # determinar hacia donde estamos mirando 
 var can_attack = false
 
-var health=100 
+var health = 100 
 
 
 
@@ -19,7 +19,6 @@ onready var anim_tree = $PlayerSkin/AnimationTree
 onready var _pivot: Node2D = $PlayerSkin
 onready var playback = anim_tree.get("parameters/playback")
 onready var _start_scale: Vector2 = _pivot.scale
-onready var health_bar = $CanvasLayer/HealthBar
 onready var energy_bar = $CanvasLayer/EnergyBar
 
 var Bullet = preload("res://Scenes/Bullet.tscn")
@@ -29,7 +28,6 @@ var crouched = false
 
 func _ready():
 	anim_tree.active = true
-	health_bar.value = health
 
 
 func _physics_process(delta):
@@ -122,9 +120,9 @@ func _physics_process(delta):
 
 		
 
-func _on_melee_area_entered(body: Node):
-	if body.has_method("take_damage"):
-		body.take_damage(self)
+#func _on_melee_area_entered(body: Node):
+	#if body.has_method("take_damage"):
+		#body.take_damage(self)
 
 
 #func take_damage(amount):
@@ -139,3 +137,10 @@ func _on_melee_area_entered(body: Node):
 
 func _on_EnergyBar_max_combo_reached(state):
 	can_attack = state
+func damage_player(damage):
+	health -= damage
+
+func _on_HurtBox_area_entered(area):
+	if area.get_parent().is_in_group("enemy"):
+		damage_player(area.get_parent().damage)
+	pass # Replace with function body.

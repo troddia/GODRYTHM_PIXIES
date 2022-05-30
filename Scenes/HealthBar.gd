@@ -1,16 +1,10 @@
 extends TextureProgress
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export (NodePath) var player_node
+onready var player = get_node(player_node)
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	self.value = player.health
+	if self.value <= 0:
+		get_tree().change_scene("res://Scenes/main_menu.tscn")

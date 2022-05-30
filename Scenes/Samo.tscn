@@ -44,6 +44,14 @@ animations = [ {
 position = Vector2( 18, -3 )
 script = ExtResource( 13 )
 
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 __meta__ = {
@@ -72,6 +80,7 @@ texture_progress = ExtResource( 9 )
 tint_progress = Color( 0.0784314, 1, 0, 1 )
 nine_patch_stretch = true
 script = ExtResource( 8 )
+player_node = NodePath("../..")
 
 [node name="EnergyBar" type="TextureProgress" parent="CanvasLayer"]
 margin_left = 80.0
@@ -110,7 +119,7 @@ position = Vector2( 8.99999, -2 )
 scale = Vector2( 2.5625, 3.64583 )
 frames = SubResource( 7 )
 animation = "sayayin"
-frame = 3
+frame = 2
 speed_scale = 4.0
 playing = true
 flip_v = true
@@ -118,6 +127,7 @@ script = ExtResource( 11 )
 
 [connection signal="just_shot" from="." to="Game" method="_on_Samo_just_shot"]
 [connection signal="just_shot" from="." to="CanvasLayer/EnergyBar" method="_on_Samo_just_shot"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="combo_changed" from="Game" to="CanvasLayer/EnergyBar" method="_on_Game_combo_changed"]
 [connection signal="max_combo_reached" from="CanvasLayer/EnergyBar" to="." method="_on_EnergyBar_max_combo_reached"]
 [connection signal="max_combo_reached" from="CanvasLayer/EnergyBar" to="AnimatedSprite" method="_on_EnergyBar_max_combo_reached"]
