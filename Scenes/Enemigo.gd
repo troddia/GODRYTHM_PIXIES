@@ -4,7 +4,12 @@ onready var _animation_player: AnimationPlayer = $AnimationPlayer2
 onready var playback = $AnimationTree.get("parameters/playback")
 var i = 0
 export var damage = 10
+<<<<<<< HEAD
 onready var health = 120
+=======
+onready var psamodamage = 0
+onready var health = 200
+>>>>>>> 318d10eb161840dec2e3c08c290793a58caf65a6
 var invocacion = preload('res://Scenes/Calaveras.tscn')
 var forgod= false
 onready var timer = get_node("Tiempoataques")
@@ -75,8 +80,10 @@ func _on_Timer_timeout():
 
 	
 func damage_enemy(damage):
+	health -= psamodamage
 	health -= damage
-	print(health)
+	
+	print('hp boss',health)
 	if health <= 0:
 		get_tree().change_scene("res://Scenes/Win.tscn")
 			
@@ -96,5 +103,7 @@ func _on_Main_animacion(state):
 	pass # Replace with function body.
 
 
-func _on_Samo_passivedamage(pdamage):
-	pass # Replace with function body.
+
+func _on_Samo_passivedamage(score):
+	psamodamage = score
+	

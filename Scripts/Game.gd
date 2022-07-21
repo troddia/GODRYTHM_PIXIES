@@ -2,8 +2,9 @@ extends Node2D
 
 var score = 0
 var combo = 0
+var TSCORE = 0
 signal combo_changed(new_combo)
-signal score_changed(combo)
+signal score_changed(score)
 
 
 var max_combo = 0
@@ -127,30 +128,47 @@ func _spawn_notes(to_spawn):
 func increment_score(by):
 	if by > 0:
 		combo += by
+		TSCORE +=1
 	else:
 		if combo < 10:
 			combo = 0
 	emit_signal("combo_changed",combo)
+	## pasive damage
 	if by == 3:
 		great += 1
+		score += 1
+
 	elif by == 2:
 		good += 1
+		score += 1
+
 	elif by == 1:
 		okay += 1
+		score += 1
+
 	else:
 		missed += 1
+		if score >0:
+			score -= 1
+
+		
 	
-	
-	score =1
+	 
 	
 	
 	
 	if combo > max_combo:
 		max_combo = combo
 
-	emit_signal('score_changed',score)
+	emit_signal('score_changed', score)
+	print('Tscore:',TSCORE)
+	
 	
 
 
 func _on_Samo_just_shot(new_combo):
 	combo = new_combo
+
+
+func _on_Samo_resetscore():
+	score = 0
