@@ -1,23 +1,15 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Fonts/ManaFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scenes/PanelContainer.gd" type="Script" id=2]
 [ext_resource path="res://ASSETS/industrias/Sprites/bg.png" type="Texture" id=3]
 [ext_resource path="res://ASSETS/industrias/Sprites/far-buildings.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/industrias/Sprites/skill-foreground.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/industrias/Sprites/buildings.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/Jefe/demon-idle.png" type="Texture" id=7]
-[ext_resource path="res://assets/hf-free-complete/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://ASSETS/Jefe/demon-attack-no-breath.png" type="Texture" id=9]
 [ext_resource path="res://ASSETS/Jefe/demon-attack.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Win.gd" type="Script" id=11]
 [ext_resource path="res://ASSETS/explosion-63.png" type="Texture" id=12]
-
-[sub_resource type="Theme" id=1]
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 8 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Ataque"
@@ -29,10 +21,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 582, 383 ) ]
+"values": [ Vector2( 582, 383 ), Vector2( 582, 383 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite2:texture")
@@ -415,10 +407,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -493,44 +485,6 @@ position = Vector2( 444, 475 )
 scale = Vector2( 3.25643, 4.96875 )
 texture = ExtResource( 5 )
 
-[node name="DeadMenu" type="PanelContainer" parent="."]
-self_modulate = Color( 0.890196, 0.0392157, 0.960784, 1 )
-margin_left = 114.0
-margin_top = 208.0
-margin_right = 292.0
-margin_bottom = 298.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource( 2 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DeadMenu"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 171.0
-margin_bottom = 83.0
-
-[node name="Label" type="Label" parent="DeadMenu/VBoxContainer"]
-self_modulate = Color( 0.894118, 0.976471, 0.054902, 1 )
-margin_right = 164.0
-margin_bottom = 28.0
-theme = SubResource( 1 )
-custom_fonts/font = SubResource( 2 )
-text = "NEW GAME?"
-
-[node name="Restart" type="Button" parent="DeadMenu/VBoxContainer"]
-self_modulate = Color( 0.819608, 0.121569, 0.960784, 1 )
-margin_top = 32.0
-margin_right = 164.0
-margin_bottom = 52.0
-text = "NEW GAME"
-
-[node name="Exit" type="Button" parent="DeadMenu/VBoxContainer"]
-self_modulate = Color( 0.733333, 0.0588235, 0.898039, 1 )
-margin_top = 56.0
-margin_right = 164.0
-margin_bottom = 76.0
-text = "BYE N00B"
-
 [node name="PlayerAnim" type="Node2D" parent="."]
 position = Vector2( 0, -1 )
 
@@ -539,7 +493,7 @@ position = Vector2( -61, -28 )
 scale = Vector2( 2.15409, 2.15409 )
 texture = ExtResource( 10 )
 hframes = 11
-frame = 5
+frame = 1
 region_rect = Rect2( 90, 47, 134, 124 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="PlayerAnim"]
@@ -551,7 +505,7 @@ anims/gRITO = SubResource( 7 )
 anims/quieto = SubResource( 8 )
 
 [node name="Label" type="Label" parent="."]
-self_modulate = Color( 0.917647, 0.0470588, 0.0470588, 1 )
+self_modulate = Color( 0.890196, 0.917647, 0.0470588, 1 )
 margin_left = 514.0
 margin_top = 93.0
 margin_right = 820.0
@@ -574,7 +528,7 @@ position = Vector2( 654, 449 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 12 )
 hframes = 8
-frame = 3
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayExp"]
 anims/RESET = SubResource( 9 )

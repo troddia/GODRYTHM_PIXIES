@@ -1,32 +1,27 @@
-extends MarginContainer
-
-onready var start = $PanelContainer/VBoxContainer/Start
-onready var exit = $PanelContainer/VBoxContainer/Exit
+extends Node2D
 var run = false
 onready var anim = $PlayerSkinMENU/AnimationPlayer
-onready var timer = get_node("TimerMENU")
+onready var timer = get_node("TimerCreditos")
 onready var sprite = $PlayerSkinMENU
+onready var black = $Black
+onready var label = $Label
+onready var credits = $LabelCreditos
 
 func _ready():
-	start.connect("pressed", self, "_on_start_pressed")
-	exit.connect("pressed", self, "_on_exit_pressed")
-	anim.play("walk")
+	black.visible = false
+	label.visible = false
+	credits.visible = true
+	anim.play("Run")
+	timer.set_wait_time(3)
+	timer.start()
+	
 func _process(delta):
 	if run:
 		sprite.position.x += 2
 
-	
-func _on_start_pressed():
-	run = true
-	anim.play("Run")
-	timer.set_wait_time(1.5)
-	timer.start()
-	
-
-
-func _on_exit_pressed():
-	get_tree().quit()
-
-
-func _on_TimerMENU_timeout():
-	get_tree().change_scene("res://Scenes/Jefe1Animation.tscn")
+func _on_TimerCreditos_timeout():
+	black.visible = true
+	label.visible = true
+	credits.visible = false
+	yield(get_tree().create_timer(3),"timeout")
+	get_tree().change_scene("res://Scenes/main_menu.tscn")
