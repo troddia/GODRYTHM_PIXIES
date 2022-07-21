@@ -141,8 +141,8 @@ func increment_score(by):
 		missed += 1
 	
 	
-	score += 1
-	print(score)
+	score =1
+	
 	
 	
 	if combo > max_combo:
