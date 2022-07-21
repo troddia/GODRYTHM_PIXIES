@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://ASSETS/Jefe/demon-attack-no-breath.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Jefe/demon-attack.png" type="Texture" id=2]
@@ -435,12 +435,16 @@ graph_offset = Vector2( -126.701, -15.7894 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
-[sub_resource type="CapsuleShape2D" id=9]
-radius = 80.0
-height = 0.0
+[sub_resource type="CapsuleShape2D" id=43]
+radius = 83.0
+height = 180.0
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 99, 54.5 )
+
+[sub_resource type="CapsuleShape2D" id=44]
+radius = 74.0
+height = 198.0
 
 [node name="Enemigo" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 4 )
@@ -477,8 +481,8 @@ cast_to = Vector2( -250, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4
-position = Vector2( -27, 0 )
-shape = SubResource( 9 )
+position = Vector2( 2, -1 )
+shape = SubResource( 43 )
 
 [node name="Ataques" type="Area2D" parent="."]
 collision_layer = 0
@@ -519,4 +523,12 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+light_mask = 4
+position = Vector2( 0, 1 )
+shape = SubResource( 44 )
+
 [connection signal="timeout" from="Tiempoataques" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

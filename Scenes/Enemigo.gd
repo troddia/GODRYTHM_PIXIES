@@ -4,6 +4,7 @@ onready var _animation_player: AnimationPlayer = $AnimationPlayer2
 onready var playback = $AnimationTree.get("parameters/playback")
 var i = 0
 export var damage = 10
+onready var health = 10
 var invocacion = preload('res://Scenes/Calaveras.tscn')
 var forgod= false
 onready var timer = get_node("Tiempoataques")
@@ -55,5 +56,16 @@ func _on_Timer_timeout():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+	
+func damage_enemy(damage):
+	health -= damage
+	if health <= 0:
+		get_tree().change_scene("res://Scenes/Win.tscn")
+			
+func _on_HurtBox_area_entered(area):
+	if area.get_parent().is_in_group("player"):
+		damage_enemy(area.get_parent().damage)
+	pass # Replace with function body.
 
 

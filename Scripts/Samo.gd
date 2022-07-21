@@ -12,7 +12,7 @@ var _facing_right = true # determinar hacia donde estamos mirando
 var can_attack = false
 
 var health = 100 
-
+export var damage = 10
 
 
 onready var anim_tree = $PlayerSkin/AnimationTree
@@ -76,7 +76,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("shoot"):
 			
 			var bullet = Bullet.instance()
-			get_parent().add_child(bullet)
+			self.add_child(bullet)
 			
 			if abs(lineal_vel.x) > 10 :
 				playback.travel("run shoot")
@@ -143,8 +143,12 @@ func _on_EnergyBar_max_combo_reached(state):
 	can_attack = state
 func damage_player(damage):
 	health -= damage
+	if health <= 0:
+		get_tree().change_scene("res://Scenes/Game Over.tscn")
 
 func _on_HurtBox_area_entered(area):
 	if area.get_parent().is_in_group("enemy"):
 		damage_player(area.get_parent().damage)
 	pass # Replace with function body.
+	
+	

@@ -11,16 +11,18 @@ func _ready():
 	start.connect("pressed", self, "_on_start_pressed")
 	exit.connect("pressed", self, "_on_exit_pressed")
 	anim.play("walk")
-	
 func _process(delta):
 	if run:
 		sprite.position.x += 2
+
 	
 func _on_start_pressed():
 	run = true
 	anim.play("Run")
 	timer.set_wait_time(1.5)
 	timer.start()
+	
+
 
 func _on_exit_pressed():
 	get_tree().quit()
