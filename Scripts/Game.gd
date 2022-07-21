@@ -19,9 +19,9 @@ var last_spawned_beat = 0
 var sec_per_beat = 60.0 / bpm
 
 var spawn_1_beat = 0
-var spawn_2_beat = 3
+var spawn_2_beat = 1
 var spawn_3_beat = 0
-var spawn_4_beat = 2
+var spawn_4_beat = 1
 
 var lane = 0
 var rand = 0
@@ -50,8 +50,8 @@ func _on_Conductor_beat(position):
 	if song_position_in_beats > 36:
 		spawn_1_beat = 1
 		spawn_2_beat = 0
-		spawn_3_beat = 1
-		spawn_4_beat = 0
+		spawn_3_beat = 0
+		spawn_4_beat = 1
 	if song_position_in_beats > 98:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
@@ -95,14 +95,15 @@ func _on_Conductor_beat(position):
 		spawn_4_beat = 1
 	if song_position_in_beats > 388:
 		spawn_1_beat = 1
-		spawn_2_beat = 0
-		spawn_3_beat = 0
-		spawn_4_beat = 0
+		spawn_2_beat = 3
+		spawn_3_beat = 2
+		spawn_4_beat = 3
 	if song_position_in_beats > 396:
 		spawn_1_beat = 0
 		spawn_2_beat = 0
 		spawn_3_beat = 0
 		spawn_4_beat = 0
+	
 
 
 func _spawn_notes(to_spawn):
@@ -124,9 +125,10 @@ func _spawn_notes(to_spawn):
 
 func increment_score(by):
 	if by > 0:
-		combo += 1
+		combo += by
 	else:
-		combo = 0
+		if combo < 10:
+			combo = 0
 	emit_signal("combo_changed",combo)
 	if by == 3:
 		great += 1
@@ -139,8 +141,9 @@ func increment_score(by):
 	
 	
 	score += by
-
-
+	print(score)
+	
+	
 	if combo > max_combo:
 		max_combo = combo
 

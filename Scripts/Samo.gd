@@ -51,7 +51,7 @@ func _physics_process(delta):
 		#lineal_vel.y = -SPEED*1.4
 		if jump_count < 1:
 			jump_count += 1
-			lineal_vel.y = -SPEED*1.4
+			lineal_vel.y = -SPEED*1.1
 		
 	if is_on_floor():
 		jump_count = 0
