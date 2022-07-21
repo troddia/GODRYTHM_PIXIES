@@ -65,7 +65,7 @@ func _physics_process(delta):
 	else:
 		crouched = false
 		agacharShape.position.y=-0
-		print(agacharShape.position.y)
+
 	# var capsule: CapsuleShape2D = collision_shape.shape
 	# (collision_shape.shape as CapsuleShape2D).radius
 		

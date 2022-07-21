@@ -466,8 +466,8 @@ tree_root = SubResource( 17 )
 anim_player = NodePath("../AnimationPlayer2")
 parameters/playback = SubResource( 18 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 1.033
+[node name="Tiempoataques" type="Timer" parent="."]
+wait_time = 1.959
 autostart = true
 
 [node name="dect_izq" type="RayCast2D" parent="."]
@@ -519,4 +519,4 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Tiempoataques" to="." method="_on_Timer_timeout"]
