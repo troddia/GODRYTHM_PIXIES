@@ -77,3 +77,7 @@ func _on_HurtBox_area_entered(area):
 func _on_Main_animacion(state):
 	animacion = state
 	pass # Replace with function body.
+
+
+func _on_Samo_passivedamage(pdamage):
+	pass # Replace with function body.
