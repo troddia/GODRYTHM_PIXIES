@@ -145,3 +145,5 @@ texture = ExtResource( 5 )
 [node name="Enemigo" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1433, 390 )
 scale = Vector2( 2, 2 )
+
+[connection signal="animacion" from="." to="Enemigo" method="_on_Main_animacion"]

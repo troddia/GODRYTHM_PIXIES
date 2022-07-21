@@ -9,6 +9,7 @@ var invocacion = preload('res://Scenes/Calaveras.tscn')
 var forgod= false
 onready var timer = get_node("Tiempoataques")
 var v = 0
+var animacion = false
 func _physics_process(_delta) -> void:
 
 #	_animation_player.play("quieto")
@@ -38,8 +39,7 @@ func wea(spawn):
 func _on_Timer_timeout():
 	
 	forgod = true
-	print('rico')
-	if v==1:
+	if v==1 and animacion:
 		if i ==0:
 			wea($spawn1)
 			i=1
@@ -69,3 +69,10 @@ func _on_HurtBox_area_entered(area):
 	pass # Replace with function body.
 
 
+
+
+
+
+func _on_Main_animacion(state):
+	animacion = state
+	pass # Replace with function body.
