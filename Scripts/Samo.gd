@@ -76,7 +76,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("shoot"):
 			
 			var bullet = Bullet.instance()
-			self.add_child(bullet)
+			get_parent().add_child(bullet)
 			
 			if abs(lineal_vel.x) > 10 :
 				playback.travel("run shoot")
