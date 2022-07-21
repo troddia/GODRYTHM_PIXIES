@@ -8,8 +8,10 @@ onready var anim = $PlayerAnim/AnimationPlayer
 onready var blackBackground = $ColorRect
 onready var player = $PlayerAnim
 onready var diedText = $Label
-onready var calavera = $Calaveras/calavera
-onready var calavera2 = $Calaveras/calavera2
+onready var calavera = $Calaveras
+onready var animCalabera = $Calaveras/AnimationPlayer
+onready var calavera2 = $Calaveras2
+onready var animCalabera2 = $Calaveras2/AnimationPlayer
 # onready var timer = get_node("TimerMENU")
 # onready var sprite = $PlayerSkinMENU
 
@@ -28,6 +30,8 @@ func _ready():
 	diedText.visible = true
 	calavera.visible = true
 	calavera2.visible = true
+	animCalabera.play("calaca")
+	animCalabera2.play("calaca")
 	yield(get_tree().create_timer(1.5),"timeout")
 	
 	player.visible = true
