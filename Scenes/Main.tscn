@@ -147,3 +147,4 @@ position = Vector2( 1433, 390 )
 scale = Vector2( 2, 2 )
 
 [connection signal="animacion" from="." to="Enemigo" method="_on_Main_animacion"]
+[connection signal="passivedamage" from="Samo" to="Enemigo" method="_on_Samo_passivedamage"]

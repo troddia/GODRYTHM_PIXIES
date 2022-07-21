@@ -4,7 +4,7 @@ onready var _animation_player: AnimationPlayer = $AnimationPlayer2
 onready var playback = $AnimationTree.get("parameters/playback")
 var i = 0
 export var damage = 10
-onready var health = 200
+onready var health = 10
 var invocacion = preload('res://Scenes/Calaveras.tscn')
 var forgod= false
 onready var timer = get_node("Tiempoataques")
@@ -40,12 +40,13 @@ func _on_Timer_timeout():
 	if v==1 and animacion:
 		if i ==0:
 			wea($spawn1)
+			wea($spawn2)
 			i=1
 		else:
 			wea($spawn5)
 			i=0
 
-		wea($spawn2)
+		
 		wea($spawn3)
 		#yield(get_tree().create_timer(0.5),"timeout")
 		wea($spawn4)
@@ -58,11 +59,12 @@ func _on_Timer_timeout():
 	
 func damage_enemy(damage):
 	health -= damage
+	print(health)
 	if health <= 0:
 		get_tree().change_scene("res://Scenes/Win.tscn")
 			
 func _on_HurtBox_area_entered(area):
-	print(area)
+
 	if not area.get_parent().is_in_group("enemy") and area != invocacion:
 		damage_enemy(10)
 	pass # Replace with function body.
@@ -74,4 +76,8 @@ func _on_HurtBox_area_entered(area):
 
 func _on_Main_animacion(state):
 	animacion = state
+	pass # Replace with function body.
+
+
+func _on_Samo_passivedamage(pdamage):
 	pass # Replace with function body.

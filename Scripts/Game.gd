@@ -3,6 +3,7 @@ extends Node2D
 var score = 0
 var combo = 0
 signal combo_changed(new_combo)
+signal score_changed(combo)
 
 
 var max_combo = 0
@@ -140,14 +141,14 @@ func increment_score(by):
 		missed += 1
 	
 	
-	score += by
-	print(score)
+	score =1
+	
 	
 	
 	if combo > max_combo:
 		max_combo = combo
 
-		
+	emit_signal('score_changed',score)
 	
 
 

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal just_shot(new_combo)
+signal passivedamage(pdamage)
 
 var lineal_vel = Vector2.ZERO #velocidad lineal que parte como cero (velocidad en plano xy)
 var SPEED = 400
@@ -152,3 +153,9 @@ func _on_HurtBox_area_entered(area):
 	pass # Replace with function body.
 	
 	
+
+
+
+func _on_Game_score_changed(combo):
+	print(combo)
+	emit_signal("passive_damage",combo)
