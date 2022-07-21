@@ -26,8 +26,6 @@ func _physics_process(_delta) -> void:
 	elif forgod:
 		playback.travel("Invocacion")
 		forgod=false
-		
-		
 	else:
 		playback.travel("quieto")
 
@@ -64,8 +62,9 @@ func damage_enemy(damage):
 		get_tree().change_scene("res://Scenes/Win.tscn")
 			
 func _on_HurtBox_area_entered(area):
-	if area.get_parent().is_in_group("player"):
-		damage_enemy(area.get_parent().damage)
+	print(area)
+	if not area.get_parent().is_in_group("enemy") and area != invocacion:
+		damage_enemy(10)
 	pass # Replace with function body.
 
 
