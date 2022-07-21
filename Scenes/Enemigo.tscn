@@ -424,9 +424,9 @@ states/Ataque/position = Vector2( 420.457, 5.488 )
 states/Fuego/node = SubResource( 22 )
 states/Fuego/position = Vector2( 666, 125 )
 states/Invocacion/node = SubResource( 32 )
-states/Invocacion/position = Vector2( 350.457, 156.488 )
+states/Invocacion/position = Vector2( 352.457, 156.488 )
 states/grito/node = SubResource( 37 )
-states/grito/position = Vector2( -10.701, 87.708 )
+states/grito/position = Vector2( -36.701, 98.708 )
 states/quieto/node = SubResource( 14 )
 states/quieto/position = Vector2( 148, 68 )
 transitions = [ "Fuego", "quieto", SubResource( 25 ), "quieto", "Ataque", SubResource( 30 ), "Ataque", "Fuego", SubResource( 31 ), "Invocacion", "quieto", SubResource( 35 ), "quieto", "grito", SubResource( 38 ), "grito", "quieto", SubResource( 39 ), "quieto", "Invocacion", SubResource( 40 ), "Invocacion", "Fuego", SubResource( 41 ), "Fuego", "Invocacion", SubResource( 42 ) ]
@@ -454,7 +454,6 @@ position = Vector2( -61, -28 )
 scale = Vector2( 2.15409, 2.15409 )
 texture = ExtResource( 2 )
 hframes = 11
-frame = 7
 region_rect = Rect2( 90, 47, 134, 124 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
