@@ -11,7 +11,7 @@ var shouting = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim.play("gRITO")
+	anim.play("grito")
 	zombi.play()
 	yield(get_tree().create_timer(3.5),"timeout")
 	shouting = false

@@ -47,16 +47,12 @@ script = ExtResource( 13 )
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+scale = Vector2( 1, 0.99 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1, 0.9801 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="PlayerSkin" parent="." instance=ExtResource( 1 )]
 
@@ -119,7 +115,7 @@ position = Vector2( 8.99999, -2 )
 scale = Vector2( 2.5625, 3.64583 )
 frames = SubResource( 7 )
 animation = "sayayin"
-frame = 2
+frame = 3
 speed_scale = 4.0
 playing = true
 flip_v = true

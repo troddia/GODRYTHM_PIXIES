@@ -20,7 +20,7 @@ onready var _pivot: Node2D = $PlayerSkin
 onready var playback = anim_tree.get("parameters/playback")
 onready var _start_scale: Vector2 = _pivot.scale
 onready var energy_bar = $CanvasLayer/EnergyBar
-
+onready var agacharShape = $HurtBox/CollisionShape2D
 var Bullet = preload("res://Scenes/Bullet.tscn")
 
 var crouched = false
@@ -60,8 +60,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("crouch") and is_on_floor():
 		lineal_vel.x=0
 		crouched = true
+		
+		agacharShape.position.y=50
 	else:
 		crouched = false
+		agacharShape.position.y=-0
+		print(agacharShape.position.y)
 	# var capsule: CapsuleShape2D = collision_shape.shape
 	# (collision_shape.shape as CapsuleShape2D).radius
 		

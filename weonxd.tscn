@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://ASSETS/Jefe/demon-attack-no-breath.png" type="Texture" id=1]
+[ext_resource path="res://ASSETS/Fire-Skull-Files/PNG/fire-skull.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Jefe/demon-attack.png" type="Texture" id=2]
-[ext_resource path="res://ASSETS/Fire-Skull-Files/PNG/fire-skull.png" type="Texture" id=3]
+[ext_resource path="res://ASSETS/Jefe/demon-attack-no-breath.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=15]
 resource_name = "Ataque"
 length = 0.9
 tracks/0/type = "value"
@@ -68,7 +68,7 @@ tracks/4/keys = {
 "values": [ 0, 1, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=16]
 resource_name = "Ataque (copy)"
 length = 0.9
 loop = true
@@ -121,7 +121,7 @@ tracks/3/keys = {
 "values": [ Vector2( -61, -28 ) ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=17]
 resource_name = "Fuego"
 length = 0.3
 loop = true
@@ -186,7 +186,7 @@ tracks/4/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=18]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:region_rect")
@@ -273,7 +273,7 @@ tracks/6/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=19]
 resource_name = "gRITO"
 length = 3.5
 loop = true
@@ -287,7 +287,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 1 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite2:hframes")
@@ -314,7 +314,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6 ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=20]
 resource_name = "quieto"
 length = 0.8
 loop = true
@@ -352,7 +352,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 1 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Sprite2:position")
@@ -382,57 +382,58 @@ tracks/4/keys = {
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "quieto"
 
-[sub_resource type="AnimationNodeStateMachine" id=38]
+[sub_resource type="AnimationNodeStateMachine" id=21]
 states/quieto/node = SubResource( 14 )
 states/quieto/position = Vector2( 231, 114 )
 start_node = "quieto"
 graph_offset = Vector2( -520.398, -64.512 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=39]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
 
-[sub_resource type="RectangleShape2D" id=42]
-extents = Vector2( 86.5, 87.5 )
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 34.25, 34.75 )
 
-[sub_resource type="RectangleShape2D" id=41]
-extents = Vector2( 85.75, 88.0625 )
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 95.6875, 77.25 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( -61, -28 )
-scale = Vector2( 2.15409, 2.15409 )
 texture = ExtResource( 2 )
 hframes = 11
-frame = 4
+frame = 3
 region_rect = Rect2( 90, 47, 134, 124 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Ataque = SubResource( 32 )
-"anims/Ataque (copy)" = SubResource( 33 )
-anims/Fuego = SubResource( 34 )
-anims/RESET = SubResource( 35 )
-anims/gRITO = SubResource( 36 )
-anims/quieto = SubResource( 37 )
+anims/Ataque = SubResource( 15 )
+"anims/Ataque (copy)" = SubResource( 16 )
+anims/Fuego = SubResource( 17 )
+anims/RESET = SubResource( 18 )
+anims/gRITO = SubResource( 19 )
+anims/quieto = SubResource( 20 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 38 )
+tree_root = SubResource( 21 )
 anim_player = NodePath("../AnimationPlayer2")
 active = true
-parameters/playback = SubResource( 39 )
+parameters/playback = SubResource( 22 )
 
 [node name="dect_izq" type="RayCast2D" parent="."]
-position = Vector2( -15, 91 )
+position = Vector2( -4, 33 )
 enabled = true
 cast_to = Vector2( -250, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
 position = Vector2( -4, 12 )
-shape = SubResource( 42 )
+shape = SubResource( 23 )
 
 [node name="Ataques" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ataques"]
-position = Vector2( -5.75, 11.9375 )
-shape = SubResource( 41 )
+light_mask = 132
+position = Vector2( 48.3125, -26.75 )
+shape = SubResource( 24 )
