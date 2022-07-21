@@ -1,12 +1,14 @@
 extends KinematicBody2D
 
 signal just_shot(new_combo)
-signal passivedamage(pdamage)
+signal passivedamage(score)
+signal resetscore()
 
 var lineal_vel = Vector2.ZERO #velocidad lineal que parte como cero (velocidad en plano xy)
 var SPEED = 400
 var GRAVITY = 700
 onready var jump_count = 0
+onready var pdamage = 0
 
 
 var _facing_right = true # determinar hacia donde estamos mirando 
@@ -32,6 +34,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	
+	### pasive damage
+	emit_signal("passivedamage",pdamage)
 	
 	lineal_vel = move_and_slide(lineal_vel, Vector2.UP) # para que se mueva, determina si esta en piso o no
 	
@@ -76,6 +81,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("shoot"):
 			
+			emit_signal("resetscore")
 			var bullet = Bullet.instance()
 			get_parent().add_child(bullet)
 			
@@ -156,6 +162,5 @@ func _on_HurtBox_area_entered(area):
 
 
 
-func _on_Game_score_changed(combo):
-	print(combo)
-	emit_signal("passive_damage",combo)
+func _on_Game_score_changed(score):
+	pdamage = score
