@@ -18,7 +18,7 @@ func _physics_process(delta):
 		self.scale.x = 2.563 + power*0.15
 		self.scale.y = 3.646 + power*0.15
 		yell = 1 - power/12
-		self.modulate =  Color( yell, yell, 1, 1 )
+		self.modulate =  Color( yell+(1-yell*0.6), yell, 1, 1 )
 
 func _on_EnergyBar_max_combo_reached(state):
 	showing = state

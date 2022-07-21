@@ -4,12 +4,9 @@ onready var _animation_player: AnimationPlayer = $AnimationPlayer2
 onready var playback = $AnimationTree.get("parameters/playback")
 var i = 0
 export var damage = 10
-<<<<<<< HEAD
-onready var health = 120
-=======
 onready var psamodamage = 0
-onready var health = 200
->>>>>>> 318d10eb161840dec2e3c08c290793a58caf65a6
+onready var health = 400
+
 var invocacion = preload('res://Scenes/Calaveras.tscn')
 var forgod= false
 onready var timer = get_node("Tiempoataques")
@@ -43,7 +40,13 @@ func _on_Timer_timeout():
 	
 	forgod = true
 	if v==1 and animacion:
-		if health>200:
+		if health >=300:
+			
+			wea($spawn5)
+			
+		
+		elif health>=200 and health<=300:
+			timer.wait_time = 2
 			if i ==0:
 				wea($spawn1)
 				wea($spawn2)
@@ -59,7 +62,7 @@ func _on_Timer_timeout():
 				yield(get_tree().create_timer(0.2),"timeout")
 				wea($spawn5)
 				i=0
-		if health<200:
+		elif health<200:
 			if i ==0:
 				wea($spawn1)
 				wea($spawn2)

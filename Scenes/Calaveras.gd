@@ -2,7 +2,7 @@ extends KinematicBody2D
  
 var VELOCIDAD = 60
 var movimiento = Vector2(0,0)
-export var damage = 5
+export var damage = 2.5
 
 # Declare member variables here. Examples:
 # var a = 2

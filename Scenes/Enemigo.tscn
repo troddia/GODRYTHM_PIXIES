@@ -470,7 +470,7 @@ anim_player = NodePath("../AnimationPlayer2")
 parameters/playback = SubResource( 18 )
 
 [node name="Tiempoataques" type="Timer" parent="."]
-wait_time = 1.959
+wait_time = 0.2
 autostart = true
 
 [node name="dect_izq" type="RayCast2D" parent="."]
