@@ -152,3 +152,8 @@ func _on_HurtBox_area_entered(area):
 	pass # Replace with function body.
 	
 	
+
+
+
+func _on_Game_score_changed(combo):
+	pass # Replace with function body.

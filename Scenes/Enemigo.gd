@@ -40,12 +40,13 @@ func _on_Timer_timeout():
 	if v==1 and animacion:
 		if i ==0:
 			wea($spawn1)
+			wea($spawn2)
 			i=1
 		else:
 			wea($spawn5)
 			i=0
 
-		wea($spawn2)
+		
 		wea($spawn3)
 		#yield(get_tree().create_timer(0.5),"timeout")
 		wea($spawn4)
@@ -58,11 +59,12 @@ func _on_Timer_timeout():
 	
 func damage_enemy(damage):
 	health -= damage
+	print(health)
 	if health <= 0:
 		get_tree().change_scene("res://Scenes/Win.tscn")
 			
 func _on_HurtBox_area_entered(area):
-	print(area)
+
 	if not area.get_parent().is_in_group("enemy") and area != invocacion:
 		damage_enemy(10)
 	pass # Replace with function body.

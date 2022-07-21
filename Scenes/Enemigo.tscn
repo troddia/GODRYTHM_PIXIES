@@ -531,4 +531,5 @@ position = Vector2( 0, 1 )
 shape = SubResource( 44 )
 
 [connection signal="timeout" from="Tiempoataques" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Ataques" to="." method="_on_Ataques_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
