@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Samotut.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/tileset.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://ASSETS/ciberpunk stage 2/Environmet/background/cyberpunk-city-2-back-preview.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/ciberpunk stage 2/Environmet/background/middle.png" type="Texture" id=7]
 [ext_resource path="res://assets/hf-free-complete/futile-pro-v1/FutilePro.otf" type="DynamicFontData" id=8]
-[ext_resource path="res://ASSETS/Jefe/Keyboard Letters and Symbols.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 916.188, 31 )
@@ -175,8 +174,6 @@ scale = Vector2( 0.5, 0.5 )
 [node name="w" type="Sprite" parent="Movement"]
 position = Vector2( 638, 178 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 38
@@ -184,8 +181,6 @@ frame = 38
 [node name="a" type="Sprite" parent="Movement"]
 position = Vector2( 545, 237 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 16
@@ -193,8 +188,6 @@ frame = 16
 [node name="s" type="Sprite" parent="Movement"]
 position = Vector2( 639, 256 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 34
@@ -202,8 +195,6 @@ frame = 34
 [node name="d" type="Sprite" parent="Movement"]
 position = Vector2( 738, 226 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 19
@@ -240,16 +231,12 @@ text = "Controles para acertar flechas:
 [node name="up" type="Sprite" parent="flechasc"]
 position = Vector2( 638, 220 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 
 [node name="l" type="Sprite" parent="flechasc"]
 position = Vector2( 552, 220 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 2
@@ -257,8 +244,6 @@ frame = 2
 [node name="r" type="Sprite" parent="flechasc"]
 position = Vector2( 725, 220 )
 scale = Vector2( 6.16667, 5.88889 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 3
@@ -344,8 +329,6 @@ text = "APRETAR ESPACIO PARA DISPARAR"
 [node name="space" type="Sprite" parent="ep"]
 position = Vector2( 380, 188 )
 scale = Vector2( 25.6979, 4.50695 )
-texture = ExtResource( 9 )
-normal_map = ExtResource( 9 )
 hframes = 8
 vframes = 14
 frame = 46

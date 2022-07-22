@@ -19,7 +19,6 @@ func _physics_process(delta):
 		
 	else:
 		self.show()
-		
 		self.scale.x = 2.563 + power*0.15
 		self.scale.y = 3.646 + power*0.15
 		yell = 1 - power/12

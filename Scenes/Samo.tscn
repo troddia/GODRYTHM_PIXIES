@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/pause_menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ASSETS/player-health-bar-over.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/player-health-bar-under.png" type="Texture" id=5]
-[ext_resource path="res://Sounds/sayayin.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/sayayin.mp3" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/EnergyBar.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/HealthBar.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/panel_Example4.png" type="Texture" id=9]
@@ -117,7 +117,7 @@ position = Vector2( 8.99999, -2 )
 scale = Vector2( 2.5625, 3.64583 )
 frames = SubResource( 7 )
 animation = "sayayin"
-frame = 2
+frame = 3
 speed_scale = 4.0
 playing = true
 flip_v = true
