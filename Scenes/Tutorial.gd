@@ -15,7 +15,7 @@ onready var energia = $ep
 onready var rythm = $rythm
 onready var movement = $Movement
 onready var flechas = $flechasc
-
+var invocacion = preload('res://Scenes/Calaveras.tscn')
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,10 +41,14 @@ func _ready():
 	energia.hide()
 	vida.show()
 	hudh.show()
+	var area = $Position2D
+	var calavera = invocacion.instance()
+	get_parent().add_child(calavera)
+	calavera.position =Vector2(area.global_position.x,area.global_position.y)
 	yield(get_tree().create_timer(8),"timeout")
 	vida.hide()
 	final.show()
-	yield(get_tree().create_timer(2),"timeout")
+	yield(get_tree().create_timer(5),"timeout")
 	get_tree().change_scene("res://Scenes/Jefe1Animation.tscn")
 
 #func _process(delta):	
