@@ -21,6 +21,7 @@ func _on_start_pressed():
 	anim.play("Run")
 	timer.set_wait_time(1.5)
 	timer.start()
+	
 
 func _on_exit_pressed():
 	get_tree().quit()
@@ -28,3 +29,7 @@ func _on_exit_pressed():
 
 func _on_TimerMENU_timeout():
 	get_tree().change_scene("res://Scenes/Jefe1Animation.tscn")
+
+
+func _on_Tutorial_pressed():
+	get_tree().change_scene("res://Scenes/Tutorial.tscn")
