@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sayayin.mp3-6fb550e67ac9a6e021b0a1f75a7b4b8e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/sayayin.mp3"
+dest_files=[ "res://.import/sayayin.mp3-6fb550e67ac9a6e021b0a1f75a7b4b8e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sonido-super-sayayin.mp3-d12b8b19f46340a0f9363cced3236d8c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/sonido-super-sayayin.mp3"
+dest_files=[ "res://.import/sonido-super-sayayin.mp3-d12b8b19f46340a0f9363cced3236d8c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

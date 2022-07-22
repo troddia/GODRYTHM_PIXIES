@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/aliento-de-fuego-efectos-de-sonido-fire-breath-sound-effects2.mp3-7747b0e9ee0b7362a77ac4fcdc994f4e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/aliento-de-fuego-efectos-de-sonido-fire-breath-sound-effects2.mp3"
+dest_files=[ "res://.import/aliento-de-fuego-efectos-de-sonido-fire-breath-sound-effects2.mp3-7747b0e9ee0b7362a77ac4fcdc994f4e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
