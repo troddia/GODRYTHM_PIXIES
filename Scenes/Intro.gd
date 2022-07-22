@@ -10,7 +10,7 @@ func _ready():
 	yield(get_tree().create_timer(5),"timeout")
 	dialogo.visible = true
 	dialogo.play()
-	yield(get_tree().create_timer(10),"timeout")
+	yield(get_tree().create_timer(20),"timeout")
 	
 
 

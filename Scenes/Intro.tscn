@@ -250,21 +250,22 @@ script = ExtResource( 12 )
 
 [node name="Panel" type="Panel" parent="Dialogo"]
 self_modulate = Color( 0.12549, 0.0941176, 0.537255, 1 )
-margin_left = 158.0
-margin_top = 370.0
-margin_right = 1114.0
-margin_bottom = 566.0
+margin_left = 164.0
+margin_top = 199.0
+margin_right = 1120.0
+margin_bottom = 525.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Dialogo"]
-margin_left = 329.0
-margin_top = 388.0
-margin_right = 1085.0
-margin_bottom = 545.0
+margin_left = 343.0
+margin_top = 214.0
+margin_right = 1099.0
+margin_bottom = 513.0
 custom_fonts/normal_font = ExtResource( 14 )
+scroll_active = false
 
 [node name="Sprite" type="Sprite" parent="Dialogo"]
-position = Vector2( 256, 465 )
+position = Vector2( 266, 301 )
 scale = Vector2( -3, 3 )
 texture = ExtResource( 13 )
 

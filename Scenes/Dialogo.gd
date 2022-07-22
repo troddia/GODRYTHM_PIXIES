@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var dialogo = "Aqui va una historia super wena porque si lkjfsdjfljsldkjf ksdjf lkj  slkdjf  lkjdf"
+onready var dialogo = "Ha pasado mucho tiempo desde que la sociedad está bajo el mando de Eloscar, un demonio alado al que mucha gente se ha enfrentado...sin exito. Eloscar nos ha arrebatado todo, incluso la música, mi gran pasión. Hoy me enfrentaré a él. Hoy lo DETENDRÉ."
 export (float) var textSpeed = 0.05
 onready var finished = false
 
