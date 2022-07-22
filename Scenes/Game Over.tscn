@@ -303,7 +303,6 @@ anims/calaca = SubResource( 6 )
 position = Vector2( 848, 176 )
 texture = ExtResource( 12 )
 hframes = 8
-frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Calaveras2"]
 anims/RESET = SubResource( 7 )

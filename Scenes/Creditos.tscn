@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/palmerasMenu.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/edificiosMenu.gd" type="Script" id=2]
@@ -19,6 +19,121 @@
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Art"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelCreditos/LabelCreditos3:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ), Color( 0.894118, 0.976471, 0.054902, 1 ), Color( 0.894118, 0.976471, 0.054902, 1 ), Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Desarrolladores"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelCreditos/LabelCreditos:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ), Color( 0.894118, 0.976471, 0.054902, 1 ), Color( 0.894118, 0.976471, 0.054902, 1 ), Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Music"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelCreditos/LabelCreditos2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ), Color( 0.894118, 0.976471, 0.054902, 1 ), Color( 0.894118, 0.976471, 0.054902, 1 ), Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelCreditos/LabelCreditos:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LabelCreditos/LabelCreditos2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LabelCreditos/LabelCreditos3:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Thanks"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.894118, 0.976471, 0.054902, 0 ), Color( 0.894118, 0.976471, 0.054902, 1 ) ]
+}
 
 [node name="Creditos" type="Node2D"]
 script = ExtResource( 4 )
@@ -86,7 +201,7 @@ scale = Vector2( 0.6, 0.6 )
 [node name="TimerCreditos" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
-self_modulate = Color( 0.894118, 0.976471, 0.054902, 1 )
+self_modulate = Color( 0.894118, 0.976471, 0.054902, 0 )
 margin_left = 487.0
 margin_top = 256.0
 margin_right = 819.0
@@ -99,21 +214,62 @@ align = 1
 [node name="LabelCreditos" type="Node2D" parent="."]
 
 [node name="LabelCreditos" type="Label" parent="LabelCreditos"]
-self_modulate = Color( 0.894118, 0.976471, 0.054902, 1 )
-margin_left = 518.0
-margin_top = 174.0
-margin_right = 778.0
-margin_bottom = 388.0
+self_modulate = Color( 0.894118, 0.976471, 0.054902, 0 )
+margin_left = 493.0
+margin_top = 150.0
+margin_right = 793.0
+margin_bottom = 461.0
 theme = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
-text = "CREDITOS
-
-Desarrolladores
+text = "DESARROLLADORES
 
 Oscar Quezada
 Camila Reyes 
 Tomás Rodriguez
+
+AYUDANTE
+Damián Ibarra"
+align = 1
+
+[node name="LabelCreditos2" type="Label" parent="LabelCreditos"]
+self_modulate = Color( 0.894118, 0.976471, 0.054902, 0 )
+margin_left = 175.0
+margin_top = 170.0
+margin_right = 1131.0
+margin_bottom = 415.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "MUSIC
+
+Mega Man X6 - Sigma 2nd  by Skiverthekiller (Feat. Gene Wong)
+
+
 "
 align = 1
+
+[node name="LabelCreditos3" type="Label" parent="LabelCreditos"]
+self_modulate = Color( 0.894118, 0.976471, 0.054902, 0 )
+margin_left = 330.0
+margin_top = 164.0
+margin_right = 988.0
+margin_bottom = 409.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "ART
+
+warped city by Ansimuz
+
+GothicVania Flying Demon by Ansimuz
+
+Industrial Parallax background by Ansimuz
+"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Art = SubResource( 6 )
+anims/Desarrolladores = SubResource( 3 )
+anims/Music = SubResource( 7 )
+anims/RESET = SubResource( 4 )
+anims/Thanks = SubResource( 5 )
 
 [connection signal="timeout" from="TimerCreditos" to="." method="_on_TimerCreditos_timeout"]
