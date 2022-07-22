@@ -22,10 +22,8 @@ func _on_Game_combo_changed(new_combo):
 func _physics_process(delta):
 	if value >= max_value:
 		emit_signal("max_combo_reached", true)
-
 	else:
 		emit_signal("max_combo_reached", false)
-
 	
 	
 

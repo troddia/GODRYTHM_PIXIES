@@ -15,7 +15,7 @@ var _facing_right = true # determinar hacia donde estamos mirando
 var can_attack = false
 
 var health = 100 
-export var damage = 15
+export var damage = 20
 
 
 onready var anim_tree = $PlayerSkin/AnimationTree

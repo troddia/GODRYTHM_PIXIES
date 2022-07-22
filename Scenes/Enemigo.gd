@@ -12,7 +12,6 @@ onready var timer = get_node("Tiempoataques")
 var v = 0
 var i = 0
 var animacion = false
-
 signal bloques(state)
 func _physics_process(_delta) -> void:
 
@@ -22,7 +21,6 @@ func _physics_process(_delta) -> void:
 	v=1
 	if $dect_izq.is_colliding():
 		playback.travel("Fuego")
-		yield(get_tree().create_timer(1),"timeout")
 	elif forgod:
 		playback.travel("Invocacion")
 		forgod=false
@@ -57,7 +55,7 @@ func _on_Timer_timeout():
 				yield(get_tree().create_timer(0.2),"timeout")
 				wea($spawn5)
 				i=0
-		elif (health>=150 and health<=300):
+		elif (health>=100 and health<=300):
 			if i ==0:
 				wea($spawn1)
 				wea($spawn2)
@@ -72,13 +70,13 @@ func _on_Timer_timeout():
 				wea($spawn2)			
 		
 
-		elif health<=150:
+		elif health<=100:
 			emit_signal("bloques",1)
 			timer.wait_time = 0.2
 			wea($spawn0)
 			wea($spawn00)
 			
-	if health>=150 and health<=200:
+	if health>=100 and health<=200:
 		timer.wait_time = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

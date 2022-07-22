@@ -12,17 +12,13 @@ onready var calavera = $Calaveras
 onready var animCalabera = $Calaveras/AnimationPlayer
 onready var calavera2 = $Calaveras2
 onready var animCalabera2 = $Calaveras2/AnimationPlayer
-onready var sonido = $AudioStreamPlayer2D
-onready var j= true
 # onready var timer = get_node("TimerMENU")
 # onready var sprite = $PlayerSkinMENU
 
 func _ready():
 	restart.connect("pressed", self, "_on_restart_pressed")
 	exit.connect("pressed", self, "_on_exit_pressed")
-	if j:
-		sonido.play()
-		j=false
+	
 	player.visible = false
 	menu.visible = false
 	diedText.visible = false
