@@ -3,7 +3,6 @@
 [ext_resource path="res://ASSETS/Fire-Skull-Files/PNG/fire-skull.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Calaveras.gd" type="Script" id=4]
 
-
 [sub_resource type="Animation" id=25]
 length = 0.001
 
@@ -97,7 +96,7 @@ script = ExtResource( 4 )
 [node name="Sprite2" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 8
-frame = 6
+frame = 1
 region_rect = Rect2( 90, 47, 134, 124 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
@@ -122,3 +121,9 @@ collision_layer = 0
 light_mask = 132
 position = Vector2( -1, 7 )
 shape = SubResource( 24 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.005
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

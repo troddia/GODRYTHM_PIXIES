@@ -15,9 +15,16 @@ func _physics_process(delta) -> void:
 	movimiento = move_and_slide(movimiento,Vector2.UP)
 	
 	movimiento.x = lerp(movimiento.x,0,0.2)
+	
+		#queue_free()
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Timer_timeout():
+	queue_free()
+

@@ -529,6 +529,18 @@ light_mask = 4
 position = Vector2( 0, 1 )
 shape = SubResource( 44 )
 
+[node name="spawn0" type="Position2D" parent="."]
+position = Vector2( 216, -208 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="spawn00" type="Position2D" parent="."]
+position = Vector2( 216, 144 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [connection signal="timeout" from="Tiempoataques" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Ataques" to="." method="_on_Ataques_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

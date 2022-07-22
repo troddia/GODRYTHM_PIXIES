@@ -34,6 +34,7 @@ func _ready():
 
 
 func _physics_process(delta):
+
 	
 	### pasive damage
 	emit_signal("passivedamage",pdamage)
@@ -156,6 +157,7 @@ func damage_player(damage):
 func _on_HurtBox_area_entered(area):
 	if area.get_parent().is_in_group("enemy"):
 		damage_player(area.get_parent().damage)
+	
 	pass # Replace with function body.
 	
 	

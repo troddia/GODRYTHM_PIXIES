@@ -71,7 +71,8 @@ script = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 532, 600 )
+position = Vector2( 532, 635 )
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 modulate = Color( 0, 0, 0, 1 )
@@ -79,7 +80,6 @@ position = Vector2( 121, 88 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
-visible = false
 scale = Vector2( 159, 8 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -105,6 +105,7 @@ position = Vector2( 431, 25 )
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 35 )
 tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 196631, 2, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0, 655380, 2, 0, 655381, 2, 0, 655382, 2, 0 )
@@ -144,10 +145,18 @@ scale = Vector2( 3.25643, 4.96875 )
 texture = ExtResource( 5 )
 
 [node name="Enemigo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1433, 390 )
+position = Vector2( 1433, 406 )
 scale = Vector2( 2, 2 )
 
-[node name="StaticBody2D3" parent="." instance=ExtResource( 9 )]
+[node name="Calaverabloque3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 587, 102 )
+collision_layer = 1
+collision_mask = 1
+
+[node name="Calaverabloque2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 100, 620 )
+collision_layer = 1
+collision_mask = 1
 
 [connection signal="animacion" from="." to="Enemigo" method="_on_Main_animacion"]
 [connection signal="passivedamage" from="Samo" to="Enemigo" method="_on_Samo_passivedamage"]

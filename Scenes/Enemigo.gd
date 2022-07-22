@@ -1,28 +1,22 @@
 extends KinematicBody2D
-var ataque= false
 onready var _animation_player: AnimationPlayer = $AnimationPlayer2
 onready var playback = $AnimationTree.get("parameters/playback")
-var i = 0
+var ataque= false
 export var damage = 10
 onready var psamodamage = 0
 onready var health = 400
-
 var invocacion = preload('res://Scenes/Calaveras.tscn')
 var forgod= false
 onready var timer = get_node("Tiempoataques")
 var v = 0
+var i = 0
 var animacion = false
 func _physics_process(_delta) -> void:
 
-#	_animation_player.play("quieto")
+
 	
 	yield(get_tree().create_timer(5),"timeout")
 	v=1
-
-#	if $dect_izq.is_colliding():
-#		_animation_player.play("Ataque")
-#	else:
-#		_animation_player.play("quieto")
 	if $dect_izq.is_colliding():
 		playback.travel("Fuego")
 	elif forgod:
@@ -36,13 +30,16 @@ func wea(spawn):
 	var calavera = invocacion.instance()
 	get_parent().add_child(calavera)
 	calavera.position =Vector2(area.global_position.x,area.global_position.y)
+	
+	
 func _on_Timer_timeout():
 	
 	forgod = true
 	if v==1 and animacion:
 		if health >=300:
 			
-			wea($spawn5)
+			wea($spawn0)
+			wea($spawn00)
 			
 		
 		elif health>=200 and health<=300:
