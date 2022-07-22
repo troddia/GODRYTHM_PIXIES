@@ -6,11 +6,13 @@ export var damage = 10
 onready var psamodamage = 0
 onready var health = 400
 var invocacion = preload('res://Scenes/Calaveras.tscn')
+
 var forgod= false
 onready var timer = get_node("Tiempoataques")
 var v = 0
 var i = 0
 var animacion = false
+signal bloques(state)
 func _physics_process(_delta) -> void:
 
 
@@ -37,12 +39,6 @@ func _on_Timer_timeout():
 	forgod = true
 	if v==1 and animacion:
 		if health >=300:
-			
-			wea($spawn0)
-			wea($spawn00)
-			
-		
-		elif health>=200 and health<=300:
 			timer.wait_time = 2
 			if i ==0:
 				wea($spawn1)
@@ -59,20 +55,28 @@ func _on_Timer_timeout():
 				yield(get_tree().create_timer(0.2),"timeout")
 				wea($spawn5)
 				i=0
-		elif health<200:
+		elif (health>=100 and health<=300):
 			if i ==0:
 				wea($spawn1)
 				wea($spawn2)
+				wea($spawn3)
+				wea($spawn4)
 				i=1
 			else:
 				wea($spawn5)
 				i=0
-
-			
 				wea($spawn3)
-				#yield(get_tree().create_timer(0.5),"timeout")
 				wea($spawn4)
-	if health<=100:
+				wea($spawn2)			
+		
+
+		elif health<=100:
+			emit_signal("bloques",1)
+			timer.wait_time = 0.2
+			wea($spawn0)
+			wea($spawn00)
+			
+	if health>=100 and health<=200:
 		timer.wait_time = 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -91,7 +95,7 @@ func _on_HurtBox_area_entered(area):
 
 	if not area.get_parent().is_in_group("enemy") and area != invocacion:
 		damage_enemy(10)
-	pass # Replace with function body.
+
 
 
 

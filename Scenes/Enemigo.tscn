@@ -395,9 +395,6 @@ animation = "grito"
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "quieto"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
@@ -413,10 +410,14 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=40]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=42]
 switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=17]
 states/Ataque/node = SubResource( 29 )
@@ -424,14 +425,14 @@ states/Ataque/position = Vector2( 420.457, 5.488 )
 states/Fuego/node = SubResource( 22 )
 states/Fuego/position = Vector2( 666, 125 )
 states/Invocacion/node = SubResource( 32 )
-states/Invocacion/position = Vector2( 352.457, 156.488 )
+states/Invocacion/position = Vector2( 343.457, 194.488 )
 states/grito/node = SubResource( 37 )
 states/grito/position = Vector2( -36.701, 98.708 )
 states/quieto/node = SubResource( 14 )
 states/quieto/position = Vector2( 148, 68 )
-transitions = [ "Fuego", "quieto", SubResource( 25 ), "quieto", "Ataque", SubResource( 30 ), "Ataque", "Fuego", SubResource( 31 ), "Invocacion", "quieto", SubResource( 35 ), "quieto", "grito", SubResource( 38 ), "grito", "quieto", SubResource( 39 ), "quieto", "Invocacion", SubResource( 40 ), "Invocacion", "Fuego", SubResource( 41 ), "Fuego", "Invocacion", SubResource( 42 ) ]
+transitions = [ "quieto", "Ataque", SubResource( 30 ), "Ataque", "Fuego", SubResource( 31 ), "Invocacion", "quieto", SubResource( 35 ), "quieto", "grito", SubResource( 38 ), "grito", "quieto", SubResource( 39 ), "quieto", "Invocacion", SubResource( 40 ), "Fuego", "Invocacion", SubResource( 42 ), "Fuego", "quieto", SubResource( 45 ), "Invocacion", "Fuego", SubResource( 46 ) ]
 start_node = "quieto"
-graph_offset = Vector2( -126.701, -15.7894 )
+graph_offset = Vector2( -266.233, 1.01688 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
@@ -454,6 +455,7 @@ position = Vector2( -61, -28 )
 scale = Vector2( 2.15409, 2.15409 )
 texture = ExtResource( 2 )
 hframes = 11
+frame = 9
 region_rect = Rect2( 90, 47, 134, 124 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
@@ -470,11 +472,11 @@ anim_player = NodePath("../AnimationPlayer2")
 parameters/playback = SubResource( 18 )
 
 [node name="Tiempoataques" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 2.0
 autostart = true
 
 [node name="dect_izq" type="RayCast2D" parent="."]
-position = Vector2( -15, 91 )
+position = Vector2( -16, 96 )
 enabled = true
 cast_to = Vector2( -250, 0 )
 
@@ -493,31 +495,31 @@ position = Vector2( -174, 89 )
 shape = SubResource( 28 )
 
 [node name="spawn1" type="Position2D" parent="."]
-position = Vector2( 216, -24 )
+position = Vector2( 218, -14 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="spawn2" type="Position2D" parent="."]
-position = Vector2( 216, 8 )
+position = Vector2( 218, 18 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="spawn3" type="Position2D" parent="."]
-position = Vector2( 216, 40 )
+position = Vector2( 218, 50 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="spawn4" type="Position2D" parent="."]
-position = Vector2( 216, 72 )
+position = Vector2( 218, 82 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="spawn5" type="Position2D" parent="."]
-position = Vector2( 216, 104 )
+position = Vector2( 218, 114 )
 __meta__ = {
 "_edit_group_": true
 }

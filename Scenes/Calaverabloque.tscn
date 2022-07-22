@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ASSETS/Fire-Skull-Files/PNG/fire-skull-no-fire.png" type="Texture" id=1]
-[ext_resource path="res://Calaverabloque.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Calaverabloque.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69, 28 )

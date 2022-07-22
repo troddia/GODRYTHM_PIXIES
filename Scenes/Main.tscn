@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Samo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/tileset.png" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://ASSETS/industrias/Sprites/far-buildings.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Enemigo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=8]
-[ext_resource path="res://Calaverabloque.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Calaverabloque.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Calaverabloque2.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 916.188, 31 )
@@ -149,14 +150,17 @@ position = Vector2( 1433, 406 )
 scale = Vector2( 2, 2 )
 
 [node name="Calaverabloque3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 587, 102 )
-collision_layer = 1
+position = Vector2( 587, -64 )
+collision_layer = 2048
 collision_mask = 1
 
 [node name="Calaverabloque2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 100, 620 )
-collision_layer = 1
+position = Vector2( 127, -64 )
+collision_layer = 2048
 collision_mask = 1
+script = ExtResource( 10 )
 
 [connection signal="animacion" from="." to="Enemigo" method="_on_Main_animacion"]
 [connection signal="passivedamage" from="Samo" to="Enemigo" method="_on_Samo_passivedamage"]
+[connection signal="bloques" from="Enemigo" to="Calaverabloque3" method="_on_Enemigo_bloques"]
+[connection signal="bloques" from="Enemigo" to="Calaverabloque2" method="_on_Enemigo_bloques"]
