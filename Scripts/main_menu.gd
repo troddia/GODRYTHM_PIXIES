@@ -28,3 +28,8 @@ func _on_exit_pressed():
 
 func _on_TimerMENU_timeout():
 	get_tree().change_scene("res://Scenes/Jefe1Animation.tscn")
+
+
+func _on_Tutorial_pressed():
+	get_tree().change_scene("res://Scenes/Tutorial.tscn")
+	pass # Replace with function body.
