@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Fonts/ManaFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sounds/sonido-monstruo-muriendo-3-efecto-de-sonido.mp3" type="AudioStream" id=2]
 [ext_resource path="res://ASSETS/industrias/Sprites/bg.png" type="Texture" id=3]
 [ext_resource path="res://ASSETS/industrias/Sprites/far-buildings.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/industrias/Sprites/skill-foreground.png" type="Texture" id=5]
@@ -528,8 +529,11 @@ position = Vector2( 654, 449 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 12 )
 hframes = 8
-frame = 7
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayExp"]
 anims/RESET = SubResource( 9 )
 anims/explosion = SubResource( 10 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )

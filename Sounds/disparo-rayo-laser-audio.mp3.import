@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/disparo-rayo-laser-audio.mp3-962170cc571b6728fde0f462ab5628fa.mp3str"
+
+[deps]
+
+source_file="res://Sounds/disparo-rayo-laser-audio.mp3"
+dest_files=[ "res://.import/disparo-rayo-laser-audio.mp3-962170cc571b6728fde0f462ab5628fa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -2,7 +2,7 @@ extends Area2D
 
 export var SPEED = 900
 onready var timer = get_node("Timer_bullet")
-
+onready var sonido = $AudioStreamPlayer2D
 func _physics_process(delta):
 	
 	position += transform.x * SPEED * delta
@@ -18,6 +18,7 @@ func _on_body_entered(body: Node):
 		self.scale.y = 2
 		$AnimationPlayer.play("splash")
 		timer.set_wait_time(0.6)
+		sonido.play()
 		SPEED = 0
 		timer.start()
 		
