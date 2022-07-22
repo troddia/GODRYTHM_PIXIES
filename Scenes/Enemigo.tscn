@@ -1,9 +1,13 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://ASSETS/Jefe/demon-attack-no-breath.png" type="Texture" id=1]
 [ext_resource path="res://ASSETS/Jefe/demon-attack.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/Jefe/demon-idle.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Enemigo.gd" type="Script" id=4]
+[ext_resource path="res://ASSETS/player-health-bar-over.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/player-health-bar-under.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/health_bar_damage.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/HealthBarenemy.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=12]
 resource_name = "Ataque"
@@ -447,7 +451,7 @@ extents = Vector2( 99, 54.5 )
 radius = 74.0
 height = 198.0
 
-[node name="Enemigo" type="KinematicBody2D" groups=["enemy"]]
+[node name="Enemigo" type="KinematicBody2D" groups=["enemy", "jefe"]]
 script = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -542,6 +546,23 @@ position = Vector2( 216, 144 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 872.0
+margin_top = 18.0
+margin_right = 1116.0
+margin_bottom = 41.0
+rect_scale = Vector2( 1.5, 1.5 )
+max_value = 400.0
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 7 )
+tint_progress = Color( 1, 0, 0.0313726, 1 )
+nine_patch_stretch = true
+script = ExtResource( 8 )
+jefe_node = NodePath("../..")
 
 [connection signal="timeout" from="Tiempoataques" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Ataques" to="." method="_on_Ataques_area_entered"]
