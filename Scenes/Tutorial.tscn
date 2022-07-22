@@ -359,3 +359,6 @@ para salvar el mundo se deben
 acertar las flechas que van
 cayendo. 
 "
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 1530, 635 )
