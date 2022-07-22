@@ -271,6 +271,17 @@ texture = ExtResource( 13 )
 
 [node name="Timer" type="Timer" parent="Dialogo"]
 
+[node name="Label2" type="Label" parent="Dialogo"]
+self_modulate = Color( 0.929412, 0.929412, 0, 1 )
+margin_left = 158.0
+margin_top = 405.0
+margin_right = 337.0
+margin_bottom = 454.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "SAMO"
+align = 1
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 15 )
 autoplay = true

@@ -111,6 +111,8 @@ func _on_Conductor_beat(position):
 		spawn_2_beat = 3
 		spawn_3_beat = 2
 		spawn_4_beat = 3
+	if song_position_in_beats > 525:
+		get_tree().change_scene("res://Scenes/Game Over.tscn")
 	
 
 

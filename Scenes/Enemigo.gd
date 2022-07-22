@@ -4,7 +4,7 @@ onready var playback = $AnimationTree.get("parameters/playback")
 var ataque= false
 export var damage = 10
 onready var psamodamage = 0
-onready var health = 20
+onready var health = 400
 var invocacion = preload('res://Scenes/Calaveras.tscn')
 
 var forgod= false
