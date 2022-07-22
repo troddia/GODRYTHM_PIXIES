@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scenes/PlayerSkin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/pause_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ASSETS/player-health-bar-over.png" type="Texture" id=4]
+[ext_resource path="res://ASSETS/player-health-bar-under.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/EnergyBar.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/HealthBar.gd" type="Script" id=8]
+[ext_resource path="res://ASSETS/panel_Example4.png" type="Texture" id=9]
+[ext_resource path="res://Warped Portraits Files/Portraits with transparent bg/portraits2.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/sayayin.gd" type="Script" id=11]
+[ext_resource path="res://ASSETS/explosion-63.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Samo.gd" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29.75, 64.5 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 12 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 12 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 12 )
+region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 12 )
+region = Rect2( 336, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "sayayin",
+"speed": 5.0
+} ]
+
+[node name="Samo" type="KinematicBody2D" groups=["player"]]
+position = Vector2( 18, -3 )
+collision_mask = 9
+script = ExtResource( 13 )
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+scale = Vector2( 1, 0.99 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1, 0.9801 )
+shape = SubResource( 1 )
+
+[node name="PlayerSkin" parent="." instance=ExtResource( 1 )]
+
+[node name="Game" parent="." instance=ExtResource( 2 )]
+position = Vector2( -239, -353 )
+scale = Vector2( 1.5, 1.5 )
+z_as_relative = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="HealthBar" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 80.0
+margin_top = 18.0
+margin_right = 324.0
+margin_bottom = 41.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 9 )
+tint_progress = Color( 0.0784314, 1, 0, 1 )
+nine_patch_stretch = true
+script = ExtResource( 8 )
+player_node = NodePath("../..")
+
+[node name="EnergyBar" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 80.0
+margin_top = 49.0
+margin_right = 199.0
+margin_bottom = 67.0
+max_value = 10.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 9 )
+tint_under = Color( 0.976471, 0.976471, 0.976471, 1 )
+tint_progress = Color( 0.8, 0.0627451, 0.803922, 1 )
+nine_patch_stretch = true
+script = ExtResource( 7 )
+
+[node name="SamoProfile" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 43, 44 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+
+[node name="BulletSpawn" type="Position2D" parent="."]
+position = Vector2( 60, -45 )
+
+[node name="BulletSpawnRun" type="Position2D" parent="."]
+position = Vector2( 75, -35 )
+
+[node name="BulletSpawnIzq" type="Position2D" parent="."]
+position = Vector2( -60, -45 )
+
+[node name="BulletSpawnRunIzq" type="Position2D" parent="."]
+position = Vector2( -75, -45 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 8.99999, -2 )
+scale = Vector2( 2.5625, 3.64583 )
+frames = SubResource( 7 )
+animation = "sayayin"
+speed_scale = 4.0
+playing = true
+flip_v = true
+script = ExtResource( 11 )
+
+[connection signal="just_shot" from="." to="Game" method="_on_Samo_just_shot"]
+[connection signal="just_shot" from="." to="CanvasLayer/EnergyBar" method="_on_Samo_just_shot"]
+[connection signal="resetscore" from="." to="Game" method="_on_Samo_resetscore"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="combo_changed" from="Game" to="CanvasLayer/EnergyBar" method="_on_Game_combo_changed"]
+[connection signal="score_changed" from="Game" to="." method="_on_Game_score_changed"]
+[connection signal="score_changed" from="Game" to="AnimatedSprite" method="_on_Game_score_changed"]
+[connection signal="max_combo_reached" from="CanvasLayer/EnergyBar" to="." method="_on_EnergyBar_max_combo_reached"]
+[connection signal="max_combo_reached" from="CanvasLayer/EnergyBar" to="AnimatedSprite" method="_on_EnergyBar_max_combo_reached"]

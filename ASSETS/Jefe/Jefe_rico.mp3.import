@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jefe_rico.mp3-f85b276f579f800b783d85a0a4da7482.mp3str"
+
+[deps]
+
+source_file="res://ASSETS/Jefe/Jefe_rico.mp3"
+dest_files=[ "res://.import/Jefe_rico.mp3-f85b276f579f800b783d85a0a4da7482.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

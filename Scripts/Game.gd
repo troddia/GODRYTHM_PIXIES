@@ -99,13 +99,18 @@ func _on_Conductor_beat(position):
 	if song_position_in_beats > 388:
 		spawn_1_beat = 1
 		spawn_2_beat = 3
-		spawn_3_beat = 2
+		spawn_3_beat = 1
 		spawn_4_beat = 3
 	if song_position_in_beats > 396:
-		spawn_1_beat = 0
-		spawn_2_beat = 0
-		spawn_3_beat = 0
-		spawn_4_beat = 0
+		spawn_1_beat = 2
+		spawn_2_beat = 1
+		spawn_3_beat = 2
+		spawn_4_beat = 3
+	if song_position_in_beats > 450:
+		spawn_1_beat = 2
+		spawn_2_beat = 3
+		spawn_3_beat = 2
+		spawn_4_beat = 3
 	
 
 
