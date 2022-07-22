@@ -117,7 +117,11 @@ position = Vector2( 8.99999, -2 )
 scale = Vector2( 2.5625, 3.64583 )
 frames = SubResource( 7 )
 animation = "sayayin"
+<<<<<<< HEAD
 frame = 2
+=======
+frame = 3
+>>>>>>> f80f4d440a7a7cf5ce57b327caa83148f78795cd
 speed_scale = 4.0
 playing = true
 flip_v = true
