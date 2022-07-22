@@ -42,9 +42,6 @@ func _ready():
 	anim.play("Dead")
 	yield(get_tree().create_timer(1.5),"timeout")
 	
-	diedText.visible = false
-	calavera.visible = false
-	calavera2.visible = false
 	menu.visible = true
 	# anim.play("walk")
 # func _process(delta):

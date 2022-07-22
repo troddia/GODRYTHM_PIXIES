@@ -222,10 +222,10 @@ texture = ExtResource( 3 )
 
 [node name="DeadMenu" type="PanelContainer" parent="."]
 self_modulate = Color( 0.890196, 0.0392157, 0.960784, 1 )
-margin_left = 556.0
-margin_top = 303.0
-margin_right = 732.0
-margin_bottom = 393.0
+margin_left = 543.0
+margin_top = 271.0
+margin_right = 725.0
+margin_bottom = 361.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource( 11 )
