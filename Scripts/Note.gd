@@ -48,10 +48,11 @@ func destroy(score):
 	$Timer.start()
 	hit = true
 	if score == 3:
-		$Node2D/Label.text = "EPIC0"
+		$Node2D/Label.text = "EPIC"
 		$Node2D/Label.modulate = Color( 1, 1, 0, 1 )
+		
 	elif score == 2:
-		$Node2D/Label.text = "RITM0"
+		$Node2D/Label.text = "RYTHM"
 		$Node2D/Label.modulate = Color( 1, 1, 0, 1 )
 	elif score == 1:
 		$Node2D/Label.text = "MEH"
