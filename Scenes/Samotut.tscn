@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/PlayerSkin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gametut.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Scenes/sayayin.gd" type="Script" id=11]
 [ext_resource path="res://ASSETS/explosion-63.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Samo.gd" type="Script" id=13]
-[ext_resource path="res://Scenes/sayayin.mp3" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.75, 64.5 )
@@ -118,6 +117,7 @@ position = Vector2( 8.99999, -2 )
 scale = Vector2( 2.5625, 3.64583 )
 frames = SubResource( 7 )
 animation = "sayayin"
+frame = 1
 speed_scale = 4.0
 playing = true
 flip_v = true
@@ -126,7 +126,6 @@ script = ExtResource( 11 )
 [node name="waton" type="AudioStreamPlayer2D" parent="AnimatedSprite"]
 position = Vector2( -3.51219, 0.548572 )
 scale = Vector2( 0.390244, 0.274286 )
-stream = ExtResource( 14 )
 
 [node name="Game" parent="." instance=ExtResource( 2 )]
 visible = false
